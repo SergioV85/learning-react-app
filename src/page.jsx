@@ -14,7 +14,7 @@ const title = React.createElement(
   'Hello World, simple element!'
 );
 
-export const Page = () => (
+const Page = () => (
   <div>
     { title }
     <Subtitle />
@@ -23,3 +23,6 @@ export const Page = () => (
   </div>
 );
 
+Page.displayName = 'Page'
+
+export { Page };
