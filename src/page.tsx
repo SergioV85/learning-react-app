@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { Subtitle } from './components/component';
 import { CourseName } from './components/pure-component';
@@ -22,7 +22,5 @@ const Page = () => (
     <Author author="Serhii Vozniak" mentor="Maksym Barbul" />
   </div>
 );
-
-Page.displayName = 'Page'
 
 export { Page };
