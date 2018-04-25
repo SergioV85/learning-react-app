@@ -8,7 +8,7 @@
     "build:prod": "webpack --env.production",
     "start:dev": "webpack-dev-server --config ./webpack.config.js --env.development",
     "start:prod": "webpack-dev-server --config ./webpack.config.js --env.production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:snapshot": "jest --config ./test/jest.config.json"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,6 @@
   "homepage": "https://github.com/SergioV85/learning-react-app#readme",
   "dependencies": {
     "bootstrap": "^4.1.0",
-    "express": "^4.16.3",
-    "jest": "^22.4.3",
-    "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
@@ -32,9 +29,11 @@
     "redux": "^4.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.3",
     "@types/node": "^9.6.6",
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
+    "@types/react-test-renderer": "^16.0.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
@@ -48,11 +47,14 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "html-webpack-plugin": "3.0.7",
+    "jest": "^22.4.3",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.8.3",
+    "react-test-renderer": "^16.3.2",
     "sass-loader": "^7.0.1",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.3",
+    "ts-jest": "^22.4.4",
     "ts-loader": "^4.2.0",
     "typescript": "~2.6.0",
     "webpack": "4.6.0",
