@@ -1,0 +1,20 @@
+@import './variables';
+
+.c-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    color: $primary-red;
+    font-family: $tilte-font;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  &__back-button {
+    color: $primary-red;
+    font-family: $main-font;
+    font-size: 0.8rem;
+  }
+}

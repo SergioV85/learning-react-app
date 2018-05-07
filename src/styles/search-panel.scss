@@ -1,0 +1,65 @@
+@import './variables';
+
+.c-search-panel {
+  margin: 40px 0;
+
+  &__title {
+    color: $primary-light;
+    font-family: $main-font;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  &__input {
+    background-color: $primary-dark;
+    border: 0;
+    border-bottom: 2px solid $light-red;
+    color: $primary-grey;
+    font-family: $main-font;
+    font-size: 0.7rem;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  &__controls-row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  &__search-type {
+    &-title {
+      color: $primary-grey;
+      font-family: $main-font;
+      font-size: 0.7rem;
+      margin-right: 20px;
+      text-transform: uppercase;
+    }
+    &-button {
+      background-color: $dark-grey;
+      border-radius: 2px;
+      color: $primary-grey;
+      font-family: $main-font;
+      font-size: 0.8rem;
+      margin: 0 15px;
+      text-transform: uppercase;
+
+      &.active {
+        background-color: $light-red;
+      }
+    }
+  }
+  &__search-button {
+    background-color: $light-red;
+    border: 0;
+    color: $primary-grey;
+    font-family: $main-font;
+    font-size: 0.9rem;
+    padding: 5px;
+    width: 200px;
+  }
+}

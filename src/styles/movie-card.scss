@@ -1,0 +1,36 @@
+.c-movie-card {
+  height: 350px;
+  margin: 10px 20px;
+  width: 200px;
+  
+  &__poster {
+    height: auto;
+    max-width: 100%;
+  }
+  &__title-and-year {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  &__title {
+    color: $primary-dark;
+    font-family: $main-font;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__year {
+    border: 1px solid $dark-grey;
+    border-radius: 2px;
+    color: $primary-dark;
+    font-family: $main-font;
+    font-size: 0.75rem;
+    padding: 0 2px;
+  }
+  &__genres {
+    color: $primary-dark;
+    font-family: $main-font;
+    font-size: 0.65rem;
+  }
+}

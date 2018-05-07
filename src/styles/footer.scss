@@ -1,0 +1,14 @@
+@import './variables';
+
+.c-footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    color: $light-red;
+    font-family: $tilte-font;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}

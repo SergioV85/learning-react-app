@@ -2,9 +2,9 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import './styles.scss';
 
-import { Page } from './page';
+import { MoviesPage } from './components/movies-page';
 
 ReactDOM.render(
-  <Page />,
+  <MoviesPage />,
   document.getElementById('root')
 );

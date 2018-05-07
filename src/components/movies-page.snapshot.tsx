@@ -1,11 +1,13 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import { Subtitle } from './components/component';
+import { Header } from './header/header.component';
 
 describe('Subtitle Snapshot', () => {
+  const mockedBackToList = () => {};
+
   test('renders', () => {
     const component = renderer.create(
-      <Subtitle />
+      <Header onBackToList={mockedBackToList} />
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

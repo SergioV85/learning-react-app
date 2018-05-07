@@ -1,0 +1,19 @@
+@import './variables';
+
+.c-movies-list {
+  display: flex;
+  height: 100%;
+
+  &--empty {
+    align-items: center;
+    justify-content: center;
+  }
+  &__collection {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0;
+    width: 100%;
+  }
+}

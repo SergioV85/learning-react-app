@@ -1,0 +1,59 @@
+.c-movie-details {
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0;
+  width: 100%;
+  
+  &__poster {
+    margin-right: 20px;
+    max-height: 250px;
+    width: auto;
+  }
+  &__info {
+    flex: 1 1 auto;
+  }
+  &__header {
+    display: flex;
+  }
+  &__title {
+    color: $light-red;
+    font-family: $tilte-font;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  &__rating {
+    align-items: center;
+    border: 1px solid $primary-green;
+    border-radius: 100%;
+    color: $light-green;
+    display: flex;
+    font-family: $tilte-font;
+    font-size: 0.9rem;
+    height: 24px;
+    justify-content: center;
+    width: 24px;
+  }
+  &__tagline {
+    color: $primary-grey;
+    font-family: $main-font;
+    font-size: 0.9rem;
+  }
+  &__year {
+    color: $primary-light;
+    font-family: $main-font;
+    font-size: 1rem;
+    margin-right: 20px;
+  }
+  &__duration {
+    color: $primary-light;
+    font-family: $main-font;
+    font-size: 1rem;
+  }
+  &__description {
+    color: $primary-grey;
+    font-family: $main-font;
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+}

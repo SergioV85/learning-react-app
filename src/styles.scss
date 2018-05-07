@@ -1,5 +1,13 @@
 @import '~bootstrap/dist/css/bootstrap';
+@import './styles/footer';
+@import './styles/header';
+@import './styles/movie-card';
+@import './styles/movie-details';
+@import './styles/movies-list';
+@import './styles/movies-page';
+@import './styles/search-panel';
+@import './styles/status-bar';
 
-.custom-header {
-  color: #666;
+html, body, #root {
+  height: 100%;
 }

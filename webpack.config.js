@@ -26,7 +26,7 @@ module.exports = (env) => {
           test: /(\.css)$/,
           use: [
             isProdMode ? MiniCssExtractPlugin.loader : 'style-loader',
-            'css-loader',
+            'css-loader?url=false',
           ],
         },
         // SCSS Loader
@@ -36,6 +36,19 @@ module.exports = (env) => {
             isProdMode ? MiniCssExtractPlugin.loader : 'style-loader',
             'css-loader',
             'sass-loader',
+          ],
+        },
+        // Image Loader
+        {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          loaders: [
+            'file-loader',
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                bypassOnDebug: true,
+              },
+            },
           ],
         },
         // Babel loader for JS / JSX files
@@ -65,6 +78,9 @@ module.exports = (env) => {
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      alias: {
+        'assets': path.resolve(__dirname, './src/assets'),
+      },
     },
     devServer: {
       host: 'localhost',
