@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Panel Component Snapshot should renders correctly 1`] = `
+<div
+  className="c-search-panel"
+>
+  <h2
+    className="c-search-panel__title"
+  >
+    Find your movie
+  </h2>
+  <input
+    className="c-search-panel__input"
+    onChange={[Function]}
+    placeholder="Find your movie"
+    type="text"
+  />
+  <div
+    className="c-search-panel__controls-row"
+  >
+    <div
+      className="c-search-panel__search-type"
+    >
+      <span
+        className="c-search-panel__search-type-title"
+      >
+        Search by
+      </span>
+      <div
+        className="c-search-panel__search-type-buttons btn-group btn-group-toggle"
+        data-toggle="buttons"
+      >
+        <label
+          className="c-search-panel__search-type-button c-search-panel__search-type-button--title btn "
+        >
+          <input
+            checked={false}
+            name="search-type"
+            onChange={[Function]}
+            type="radio"
+            value="title"
+          />
+          Title
+        </label>
+        <label
+          className="c-search-panel__search-type-button c-search-panel__search-type-button--genre btn "
+        >
+          <input
+            checked={false}
+            name="search-type"
+            onChange={[Function]}
+            type="radio"
+            value="genre"
+          />
+          Genre
+        </label>
+      </div>
+    </div>
+    <button
+      className="c-search-panel__search-button"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </div>
+</div>
+`;

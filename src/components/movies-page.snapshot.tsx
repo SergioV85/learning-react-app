@@ -1,15 +1,11 @@
 import * as React from 'react';
-import * as renderer from 'react-test-renderer';
-import { Header } from './header/header.component';
+import { shallow } from 'enzyme';
+import { MoviesPage } from './movies-page';
 
-describe('Subtitle Snapshot', () => {
-  const mockedBackToList = () => {};
-
-  test('renders', () => {
-    const component = renderer.create(
-      <Header onBackToList={mockedBackToList} />
-    );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+describe('Movies Page Snapshot', () => {
+  it('should render default page', () => {
+    const initMoviesPage = shallow(<MoviesPage />);
+    expect(initMoviesPage)
+      .toMatchSnapshot();
   });
 });

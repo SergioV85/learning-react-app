@@ -22,7 +22,7 @@ export class StatusBarPanel extends React.Component<StatusBarProps, StatusBarSta
             Sort by
           </span>
           <div className="c-status-bar__sort-type-buttons btn-group btn-group-toggle" data-toggle="buttons">
-            <label className={`c-status-bar__sort-type-button btn btn-link ${this.getActiveButton('release-date')}`}>
+            <label className={`c-status-bar__sort-type-button c-status-bar__sort-type-button--release-date btn btn-link ${this.getActiveButton('release-date')}`}>
               <input type="radio"
                   name="sort-type"
                   value="release-date"
@@ -30,7 +30,7 @@ export class StatusBarPanel extends React.Component<StatusBarProps, StatusBarSta
                   checked={this.props.currentSorting === 'release-date'} />
                 Title
             </label>
-            <label className={`c-status-bar__sort-type-button btn ${this.getActiveButton('rating')}`}>
+            <label className={`c-status-bar__sort-type-button c-status-bar__sort-type-button--rating btn ${this.getActiveButton('rating')}`}>
               <input type="radio"
                   name="search-type"
                   value="rating"
@@ -45,7 +45,7 @@ export class StatusBarPanel extends React.Component<StatusBarProps, StatusBarSta
     }
     return null;
   }
-  private getActiveButton(type: string): string {
+  public getActiveButton(type: string): string {
     return this.props.currentSorting === type ? 'active' : '';
   }
 }

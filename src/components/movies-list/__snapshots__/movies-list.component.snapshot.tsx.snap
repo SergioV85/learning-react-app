@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies List Component Snapshot should renders correctly 1`] = `
+<div
+  className="c-movies-list "
+>
+  <ul
+    className="c-movies-list__collection container"
+  >
+    <ErrorBoundary
+      errorMessage="Unfortunally, we can't show I Kill Giants preview"
+      key="movie-card-wrapper-419831"
+    >
+      <MovieCard
+        key="419831"
+        movie={
+          Object {
+            "budget": 0,
+            "genres": Array [
+              "Thriller",
+              "Drama",
+              "Fantasy",
+            ],
+            "id": 419831,
+            "overview": "Barbara Thorson struggles through life by escaping into a fantasy life of magic and monsters.",
+            "poster_path": "https://image.tmdb.org/t/p/w500/cvit6HDbXHE6W5kGPd47jd0wthQ.jpg",
+            "release_date": "2018-01-21",
+            "revenue": 0,
+            "runtime": 106,
+            "tagline": "",
+            "title": "I Kill Giants",
+            "vote_average": 6,
+            "vote_count": 63,
+          }
+        }
+        onMovieClick={[Function]}
+      />
+    </ErrorBoundary>
+    <ErrorBoundary
+      errorMessage="Unfortunally, we can't show The Killing of a Sacred Deer preview"
+      key="movie-card-wrapper-399057"
+    >
+      <MovieCard
+        key="399057"
+        movie={
+          Object {
+            "budget": 0,
+            "genres": Array [
+              "Drama",
+              "Horror",
+              "Thriller",
+            ],
+            "id": 399057,
+            "overview": "A teenager's attempts to bring a brilliant surgeon into his dysfunctional family take an unexpected turn.",
+            "poster_path": "https://image.tmdb.org/t/p/w500/e4DGlsc9g0h5AyoyvvAuIRnofN7.jpg",
+            "release_date": "2017-10-20",
+            "revenue": 2205074,
+            "runtime": 121,
+            "tagline": "",
+            "title": "The Killing of a Sacred Deer",
+            "vote_average": 6.6,
+            "vote_count": 509,
+          }
+        }
+        onMovieClick={[Function]}
+      />
+    </ErrorBoundary>
+    <ErrorBoundary
+      errorMessage="Unfortunally, we can't show Kill Switch preview"
+      key="movie-card-wrapper-423988"
+    >
+      <MovieCard
+        key="423988"
+        movie={
+          Object {
+            "budget": 1000000,
+            "genres": Array [
+              "Science Fiction",
+            ],
+            "id": 423988,
+            "overview": "A pilot battles to save his family and the planet after an experiment for unlimited energy goes wrong.",
+            "poster_path": "https://image.tmdb.org/t/p/w500/8K6pfMcT3hiIlCFw2RrHoXLshxl.jpg",
+            "release_date": "2017-06-01",
+            "revenue": 0,
+            "runtime": 91,
+            "tagline": "Worlds will collide",
+            "title": "Kill Switch",
+            "vote_average": 5,
+            "vote_count": 81,
+          }
+        }
+        onMovieClick={[Function]}
+      />
+    </ErrorBoundary>
+    <ErrorBoundary
+      errorMessage="Unfortunally, we can't show Batman: The Killing Joke preview"
+      key="movie-card-wrapper-382322"
+    >
+      <MovieCard
+        key="382322"
+        movie={
+          Object {
+            "budget": 3500000,
+            "genres": Array [
+              "Action",
+              "Animation",
+              "Crime",
+              "Drama",
+            ],
+            "id": 382322,
+            "overview": "As Batman hunts for the escaped Joker, the Clown Prince of Crime attacks the Gordon family to prove a diabolical point mirroring his own fall into madness. Based on the graphic novel by Alan Moore and Brian Bolland.",
+            "poster_path": "https://image.tmdb.org/t/p/w500/zm0ODjtfJfJW0W269LqsQl5OhJ8.jpg",
+            "release_date": "2016-07-21",
+            "revenue": 3775000,
+            "runtime": 72,
+            "tagline": "The madness begins.",
+            "title": "Batman: The Killing Joke",
+            "vote_average": 6.2,
+            "vote_count": 618,
+          }
+        }
+        onMovieClick={[Function]}
+      />
+    </ErrorBoundary>
+    <ErrorBoundary
+      errorMessage="Unfortunally, we can't show Kill Me Three Times preview"
+      key="movie-card-wrapper-237756"
+    >
+      <MovieCard
+        key="237756"
+        movie={
+          Object {
+            "budget": 0,
+            "genres": Array [
+              "Comedy",
+              "Thriller",
+            ],
+            "id": 237756,
+            "overview": "While on a seemingly routine job, a jaded hit man discovers that he's not the only one with his target in the crosshairs.",
+            "poster_path": "https://image.tmdb.org/t/p/w500/zqTlUUBlVZTzVMYUnJQve0kJc3o.jpg",
+            "release_date": "2015-04-10",
+            "revenue": 0,
+            "runtime": 90,
+            "tagline": "Once is never enough.",
+            "title": "Kill Me Three Times",
+            "vote_average": 5.5,
+            "vote_count": 203,
+          }
+        }
+        onMovieClick={[Function]}
+      />
+    </ErrorBoundary>
+  </ul>
+</div>
+`;

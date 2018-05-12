@@ -21,7 +21,7 @@ export class MoviesList extends React.Component<MoviesListProps, MoviesListState
         : <ul className="c-movies-list__collection container">
             {this.props.movies.map(
               (movie) => 
-                <ErrorBoundary errorMessage={`Unfortunally, we can't show ${movie.title} preview`}>
+                <ErrorBoundary key={`movie-card-wrapper-${movie.id}`} errorMessage={`Unfortunally, we can't show ${movie.title} preview`}>
                   <MovieCard key={movie.id} movie={movie} onMovieClick={this.props.onMovieClick} />
                 </ErrorBoundary>
             )}

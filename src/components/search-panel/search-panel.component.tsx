@@ -28,7 +28,7 @@ export class SearchPanel extends React.Component<SearchPanelProps, SearchPanelSt
             Search by
           </span>
           <div className="c-search-panel__search-type-buttons btn-group btn-group-toggle" data-toggle="buttons">
-            <label className={`c-search-panel__search-type-button btn ${this.getActiveButton('title')}`}>
+            <label className={`c-search-panel__search-type-button c-search-panel__search-type-button--title btn ${this.getActiveButton('title')}`}>
               <input type="radio"
                   name="search-type"
                   value="title"
@@ -36,7 +36,7 @@ export class SearchPanel extends React.Component<SearchPanelProps, SearchPanelSt
                   checked={this.props.searchType === 'title'} />
                 Title
             </label>
-            <label className={`c-search-panel__search-type-button btn ${this.getActiveButton('genre')}`}>
+            <label className={`c-search-panel__search-type-button c-search-panel__search-type-button--genre btn ${this.getActiveButton('genre')}`}>
               <input type="radio"
                   name="search-type"
                   value="genre"
@@ -55,7 +55,7 @@ export class SearchPanel extends React.Component<SearchPanelProps, SearchPanelSt
     </div>
   }
 
-  private getActiveButton(type: string): string {
+  public getActiveButton(type: string): string {
     return this.props.searchType === type ? 'active' : '';
   }
 }

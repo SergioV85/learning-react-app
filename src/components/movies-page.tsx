@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Header } from './header/header.component';
 import { SearchPanel } from './search-panel/search-panel.component';
 import { StatusBarPanel } from './status-bar/status-bar.component';
+import { MovieDetails } from './movie-details/movie-details.component';
 import { MoviesList } from './movies-list/movies-list.component';
 import { MovieObject } from './movie-card/movie-card.component';
 import { Footer } from './footer/footer.component';
@@ -10,7 +11,7 @@ import { ErrorBoundary } from './error-boundary/error-boundary.component';
 
 import { mockedMoviesList } from './movies-list/mocked-list';
 import { mockedMovieDetails } from './movies-list/mocked-details';
-import { MovieDetails } from './movie-details/movie-details.component';
+
 
 interface MoviesPageProps {}
 interface MoviesPageState {
@@ -25,7 +26,6 @@ interface MoviesPageState {
   };
   showBackButton?: boolean;
 }
-
 
 export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState> {
   constructor(props: MoviesPageProps) {
@@ -51,10 +51,10 @@ export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState
                 onBackToList={this.backToList.bind(this)} />
             {
               this.state.movies.selectedMovie !== null
-              ? <ErrorBoundary errorMessage="Unfortunally, error happens during showing details of selected movie">
+              ? <ErrorBoundary key="movie-details-wrapper" errorMessage="Unfortunally, error happens during showing details of selected movie">
                   <MovieDetails selectedMovie={this.state.movies.selectedMovie} />
                 </ErrorBoundary>
-              : <ErrorBoundary errorMessage="Unfortunally, we can't show search panel">
+              : <ErrorBoundary key="search-panel-wrapper" errorMessage="Unfortunally, we can't show search panel">
                   <SearchPanel
                       searchType={this.state.search.type}
                       keyword={this.state.search.keyword}
@@ -73,7 +73,7 @@ export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState
             onChangeSorting={this.changeSortingType.bind(this)} />
       </div>
       <div className="c-page__movies">
-        <ErrorBoundary errorMessage="Unfortunally, we can't show movies list">
+        <ErrorBoundary key="movies-list-wrapper" errorMessage="Unfortunally, we can't show movies list">
           <MoviesList
               movies={this.state.movies.list}
               onMovieClick={this.selectMovie.bind(this)} />
@@ -87,7 +87,7 @@ export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState
     </div>
   }
 
-  private backToList() {
+  public backToList() {
     this.setState({
       movies: {
         ...this.state.movies,
@@ -95,7 +95,7 @@ export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState
       }
     });
   }
-  private changeSearchInput(event: React.ChangeEvent<HTMLInputElement>) {
+  public changeSearchInput(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       search: {
         ...this.state.search,
@@ -103,7 +103,7 @@ export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState
       }
     })
   }
-  private changeSearchType(event: React.ChangeEvent<HTMLInputElement>) {
+  public changeSearchType(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       search: {
         ...this.state.search,
@@ -111,7 +111,7 @@ export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState
       }
     })
   }
-  private changeSortingType(event: React.ChangeEvent<HTMLInputElement>) {
+  public changeSortingType(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       search: {
         ...this.state.search,
@@ -119,7 +119,7 @@ export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState
       }
     })
   }
-  private searchMovies() {
+  public searchMovies() {
     this.setState({
       movies: {
         ...this.state.movies,
@@ -127,7 +127,7 @@ export class MoviesPage extends React.Component<MoviesPageProps, MoviesPageState
       }
     })
   }
-  private selectMovie(movieId: number) {
+  public selectMovie(movieId: number) {
     this.setState({
       movies: {
         ...this.state.movies,

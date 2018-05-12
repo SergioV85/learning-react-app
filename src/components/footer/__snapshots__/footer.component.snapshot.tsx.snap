@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component Snapshot should renders correctly 1`] = `
+<div
+  className="c-footer"
+>
+  <span
+    className="c-footer__logo"
+  >
+    netflixroulette
+  </span>
+</div>
+`;

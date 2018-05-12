@@ -5,12 +5,15 @@
   "testPathIgnorePatterns": [
     "/node_modules/"
   ],
-  "testRegex": "((\\.|/*.)(snapshot))\\.(js|ts|tsx)?$",
+  "testRegex": "((\\.|/*.)(snapshot|test))\\.(js|ts|tsx)?$",
   "rootDir": "..",
   "moduleFileExtensions": [
     "ts",
     "tsx",
     "js",
     "json"
-  ]
+  ],
+  "coverageDirectory": "./coverage",
+  "setupTestFrameworkScriptFile": "./test/setupTests.ts",
+  "snapshotSerializers": ["enzyme-to-json/serializer"]
 }

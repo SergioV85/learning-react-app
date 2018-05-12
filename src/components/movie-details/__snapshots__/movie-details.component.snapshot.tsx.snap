@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Details Component Snapshot should renders correctly 1`] = `
+<div
+  className="c-movie-details"
+>
+  <img
+    className="c-movie-details__poster"
+    src="https://image.tmdb.org/t/p/w500/cvit6HDbXHE6W5kGPd47jd0wthQ.jpg"
+  />
+  <div
+    className="c-movie-details__info"
+  >
+    <h4
+      className="c-movie-details__header"
+    >
+      <span
+        className="c-movie-details__title"
+      >
+        I Kill Giants
+      </span>
+      <span
+        className="c-movie-details__rating"
+      >
+        6
+      </span>
+    </h4>
+    <p
+      className="c-movie-details__tagline"
+    />
+    <p>
+      <span
+        className="c-movie-details__year"
+      >
+        2018
+      </span>
+      <span
+        className="c-movie-details__duration"
+      >
+        106
+         min
+      </span>
+    </p>
+    <div
+      className="c-movie-details__description"
+    >
+      Barbara Thorson struggles through life by escaping into a fantasy life of magic and monsters.
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies Page Snapshot should render default page 1`] = `
+<div
+  className="c-page"
+>
+  <div
+    className="c-page__header"
+  >
+    <div
+      className="c-page__header-shadow"
+    >
+      <div
+        className="p-2 container"
+      >
+        <Component
+          onBackToList={[Function]}
+          showBackButton={false}
+        />
+        <ErrorBoundary
+          errorMessage="Unfortunally, we can't show search panel"
+          key="search-panel-wrapper"
+        >
+          <SearchPanel
+            keyword=""
+            onChangeType={[Function]}
+            onInputChange={[Function]}
+            onSearchMovies={[Function]}
+            searchType="title"
+          />
+        </ErrorBoundary>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c-page__status-bar"
+  >
+    <StatusBarPanel
+      currentSorting="rating"
+      foundMovies={0}
+      onChangeSorting={[Function]}
+    />
+  </div>
+  <div
+    className="c-page__movies"
+  >
+    <ErrorBoundary
+      errorMessage="Unfortunally, we can't show movies list"
+      key="movies-list-wrapper"
+    >
+      <MoviesList
+        movies={Array []}
+        onMovieClick={[Function]}
+      />
+    </ErrorBoundary>
+  </div>
+  <div
+    className="c-page__footer"
+  >
+    <div
+      className="p-2 container"
+    >
+      <Component />
+    </div>
+  </div>
+</div>
+`;

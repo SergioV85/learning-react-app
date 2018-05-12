@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component Snapshot should renders correctly 1`] = `
+<div
+  className="c-header"
+>
+  <span
+    className="c-header__logo"
+  >
+    netflixroulette
+  </span>
+  <button
+    className="btn c-header__back-button"
+    onClick={[Function]}
+  >
+    Search
+  </button>
+</div>
+`;
