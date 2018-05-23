@@ -1,10 +1,24 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { devToolsEnhancer } from 'redux-devtools-extension';
+
 import './styles.scss';
 
-import { MoviesPage } from './components/movies-page';
+import MoviesStoreContainer from './components/movies-container';
+import { rootReducer } from './reducers/root.reducer';
 
-ReactDOM.render(
-  <MoviesPage />,
-  document.getElementById('root')
+const store = createStore(
+  rootReducer,
+  devToolsEnhancer({
+    name: 'React Learning App',
+  }),
+);
+
+render(
+  <Provider store={store}>
+    <MoviesStoreContainer />
+  </Provider>,
+  document.getElementById('root'),
 );

@@ -1,26 +1,25 @@
 import * as React from 'react';
 
-interface ErrorBoundaryProps {
+interface IErrorBoundaryProps {
   errorMessage: string;
 }
-interface ErrorBoundaryState {
+interface IErrorBoundaryState {
   hasError: boolean;
 }
 
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
+export class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
+  constructor(props: IErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
 
-  public componentDidCatch(error: any, info: any) {
+  public componentDidCatch() {
     this.setState({ hasError: true });
-    console.error(error, info);
   }
 
   public render() {
     if (this.state.hasError) {
-      return <h3 className="c-error-message">{this.props.errorMessage}</h3>;
+      return <h3 className='c-error-message'>{this.props.errorMessage}</h3>;
     }
     return this.props.children;
   }

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { DateTime } from 'luxon';
+import * as React from 'react';
 
-export interface MovieObject {
+export interface IMovieObject {
   budget: number;
   genres: string[];
   id: number;
@@ -16,29 +16,27 @@ export interface MovieObject {
   vote_count: number;
 }
 
-interface MovieCardProps {
-  movie: MovieObject;
+interface IMovieCardProps {
+  movie: IMovieObject;
   onMovieClick(id: number): void;
 }
 
-interface MovieCardState {}
-
-export class MovieCard extends React.Component<MovieCardProps, MovieCardState> {
-  constructor(props: MovieCardProps) {
+export class MovieCard extends React.Component<IMovieCardProps, {}> {
+  constructor(props: IMovieCardProps) {
     super(props);
   }
 
   public render() {
-    return <div className="c-movie-card" onClick={() => this.props.onMovieClick(this.props.movie.id)}>
-      <img className="c-movie-card__poster" src={this.props.movie.poster_path} />
-      <div className="c-movie-card__title-and-year">
-        <span className="c-movie-card__title">{this.props.movie.title}</span>
-        <span className="c-movie-card__year">
-          { DateTime.fromISO(this.props.movie.release_date).year }
+    return <div className='c-movie-card' onClick={this.props.onMovieClick.bind(this.props.movie.id)}>
+      <img className='c-movie-card__poster' src={this.props.movie.poster_path} />
+      <div className='c-movie-card__title-and-year'>
+        <span className='c-movie-card__title'>{this.props.movie.title}</span>
+        <span className='c-movie-card__year'>
+          {DateTime.fromISO(this.props.movie.release_date).year}
         </span>
       </div>
-      <div className="c-movie-card__genres">
-        { this.props.movie.genres.join(', ') }
+      <div className='c-movie-card__genres'>
+        {this.props.movie.genres.join(', ')}
       </div>
     </div>;
   }

@@ -1,5 +1,5 @@
+import { mount, render, shallow } from 'enzyme';
 import * as React from 'react';
-import { shallow, mount, render } from 'enzyme';
 
 import { Footer } from './footer.component';
 
@@ -7,7 +7,7 @@ describe('Footer component', () => {
   it('should render without throwing an error', () => {
     expect(
       shallow(<Footer />)
-        .contains(<div className="c-footer"><span className="c-footer__logo">netflixroulette</span></div>))
+        .contains(<div className='c-footer'><span className='c-footer__logo'>netflixroulette</span></div>))
         .toBe(true);
   });
 

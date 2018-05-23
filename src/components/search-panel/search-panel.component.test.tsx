@@ -1,5 +1,5 @@
+import { mount, render, shallow } from 'enzyme';
 import * as React from 'react';
-import { shallow, mount, render } from 'enzyme';
 import { SearchPanel } from './search-panel.component';
 
 describe('Search Panel component', () => {
@@ -8,18 +8,19 @@ describe('Search Panel component', () => {
   const mockOnSearchMoviesFn = jest.fn();
 
   const searchPanelComponent = shallow(
-    <SearchPanel searchType="tilte"
-      keyword=""
-      onChangeType={mockOnChangeTypeFn}
-      onInputChange={mockOnInputChangeFn}
-      onSearchMovies={mockOnSearchMoviesFn} />
+    <SearchPanel
+        searchType='title'
+        keyword=''
+        onChangeType={mockOnChangeTypeFn}
+        onInputChange={mockOnInputChangeFn}
+        onSearchMovies={mockOnSearchMoviesFn}
+    />,
   );
-  const searchPanelInstance = searchPanelComponent.instance() as SearchPanel;
 
   it('should render search panel without throwing an error', () => {
     expect(searchPanelComponent
       .find('.c-search-panel')
-      .html()
+      .html(),
     )
     .toMatch(/Find your movie/);
   });
@@ -27,31 +28,36 @@ describe('Search Panel component', () => {
   it('should be selectable by class "c-search-panel"', () => {
     expect(
       searchPanelComponent
-        .is('.c-search-panel')
+        .is('.c-search-panel'),
       )
       .toBe(true);
   });
   it('should mount in a full DOM', () => {
     expect(
-      mount(<SearchPanel searchType="tilte"
-        keyword=""
-        onChangeType={() => {}}
-        onInputChange={() => {}}
-        onSearchMovies={() => {}} />
-      ).find('.c-search-panel').length
+      mount(
+      <SearchPanel
+          searchType='title'
+          keyword=''
+          onChangeType={mockOnChangeTypeFn}
+          onInputChange={mockOnInputChangeFn}
+          onSearchMovies={mockOnSearchMoviesFn}
+      />,
+      ).find('.c-search-panel').length,
       )
       .toBe(1);
   });
 
   it('should render search panel', () => {
     expect(
-      render(<SearchPanel searchType="tilte"
-        keyword=""
-        onChangeType={() => {}}
-        onInputChange={() => {}}
-        onSearchMovies={() => {}} />
+      render(<SearchPanel
+        searchType='title'
+        keyword=''
+        onChangeType={mockOnChangeTypeFn}
+        onInputChange={mockOnInputChangeFn}
+        onSearchMovies={mockOnSearchMoviesFn}
+      />,
       )
-      .text()
+      .text(),
     )
     .toMatch(/Find your movie/);
   });

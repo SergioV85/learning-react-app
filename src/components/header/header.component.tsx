@@ -1,19 +1,14 @@
 import * as React from 'react';
 
-interface HeaderProps {
+interface IHeaderProps {
   showBackButton?: boolean;
   onBackToList(): void;
 }
-
-export const Header = (props: HeaderProps) => 
-  <div className="c-header">
-    <span className="c-header__logo">netflixroulette</span>
-    {
-      props.showBackButton 
-        ? <button className="btn c-header__back-button"
-            onClick={() => props.onBackToList()}>
-            Search
-          </button>
-        : null
-    }
-  </div>
+// tslint:disable:max-line-length
+export const Header = (props: IHeaderProps) =>
+  <div className='c-header'>
+    <span className='c-header__logo'>netflixroulette</span>
+    // tslint:disable-next-line:max-line-length
+    {props.showBackButton ? <button className='btn c-header__back-button' onClick={props.onBackToList}> Search </button> : null}
+  </div>;
+// tslint:enable:max-line-length

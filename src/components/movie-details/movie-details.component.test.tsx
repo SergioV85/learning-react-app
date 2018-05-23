@@ -1,8 +1,8 @@
+import { mount, render, shallow } from 'enzyme';
 import * as React from 'react';
-import { shallow, mount, render } from 'enzyme';
 
-import { MovieDetails } from './movie-details.component';
 import { mockedMovieDetails } from './../movies-list/mocked-details';
+import { MovieDetails } from './movie-details.component';
 
 describe('Movie Details component', () => {
   const movieDetails = shallow(<MovieDetails selectedMovie={mockedMovieDetails} />);
@@ -10,7 +10,7 @@ describe('Movie Details component', () => {
   it('should render movie card without throwing an error', () => {
     expect(movieDetails
       .find('.c-movie-details__title')
-      .html()
+      .html(),
     )
     .toMatch(/I Kill Giants/);
   });
@@ -18,14 +18,14 @@ describe('Movie Details component', () => {
   it('should be selectable by class "c-movie-details"', () => {
     expect(
       movieDetails
-        .is('.c-movie-details')
+        .is('.c-movie-details'),
       )
       .toBe(true);
   });
   it('should mount in a full DOM', () => {
     expect(
       mount(<MovieDetails selectedMovie={mockedMovieDetails} />)
-        .find('.c-movie-details').length
+        .find('.c-movie-details').length,
       )
       .toBe(1);
   });
@@ -33,7 +33,7 @@ describe('Movie Details component', () => {
   it('should render movie details panel', () => {
     expect(
       render(<MovieDetails selectedMovie={mockedMovieDetails} />)
-      .text()
+      .text(),
     )
     .toMatch(/I Kill Giants/);
   });

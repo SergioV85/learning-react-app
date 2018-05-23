@@ -1,15 +1,15 @@
-import * as React from 'react';
 import { shallow } from 'enzyme';
+import * as React from 'react';
 import { ErrorBoundary } from './error-boundary.component';
 
 describe('Error Boundary component', () => {
   const errorBoundaryComponent = shallow(
-    <ErrorBoundary errorMessage="Some error"><span>Normal text</span></ErrorBoundary>
+    <ErrorBoundary errorMessage='Some error'><span>Normal text</span></ErrorBoundary>,
   );
   const errorBoundaryInstance = errorBoundaryComponent.instance() as ErrorBoundary;
   describe('componentDidCatch', () => {
     beforeAll(() => {
-      errorBoundaryInstance.componentDidCatch({ error: 'error' }, {});
+      errorBoundaryInstance.componentDidCatch();
     });
     it('should change the state', () => {
       expect(errorBoundaryComponent.state().hasError)

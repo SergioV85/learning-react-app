@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CheckerPlugin } = require('awesome-typescript-loader')
 
 const BUILD_DIR = path.resolve(__dirname, './dist');
 const APP_DIR = path.resolve(__dirname, './src');
@@ -59,9 +60,9 @@ module.exports = (env) => {
         },
         // Typescript loader for TS / TSX files
         {
-          test: /\.(tsx|.ts)?$/,
+          test: /\.(tsx|ts)?$/,
           exclude: /node_modules/,
-          use: [ 'ts-loader' ],
+          use: [ 'awesome-typescript-loader' ],
         },
       ],
     },
@@ -75,6 +76,7 @@ module.exports = (env) => {
         hash: true,
         template: `src/index.html`,
       }),
+      new CheckerPlugin(),
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],

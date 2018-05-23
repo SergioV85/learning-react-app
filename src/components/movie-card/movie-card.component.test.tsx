@@ -1,8 +1,7 @@
+import { mount, render, shallow } from 'enzyme';
 import * as React from 'react';
-import { shallow, mount, render } from 'enzyme';
-
-import { MovieCard } from './movie-card.component';
 import { mockedMovieDetails } from './../movies-list/mocked-details';
+import { MovieCard } from './movie-card.component';
 
 describe('Movie Card component', () => {
   const mockOnMovieClickFn = jest.fn();
@@ -11,7 +10,7 @@ describe('Movie Card component', () => {
   it('should render movie card without throwing an error', () => {
     expect(movieCard
         .find('.c-movie-card__title')
-        .html()
+        .html(),
       )
       .toMatch(/I Kill Giants/);
   });
@@ -19,21 +18,21 @@ describe('Movie Card component', () => {
   it('should be selectable by class "c-movie-card"', () => {
     expect(
       movieCard
-        .is('.c-movie-card')
+        .is('.c-movie-card'),
       )
       .toBe(true);
   });
   it('should mount in a full DOM', () => {
     expect(
       mount(<MovieCard movie={mockedMovieDetails} onMovieClick={mockOnMovieClickFn} />)
-        .find('.c-movie-card').length
+        .find('.c-movie-card').length,
       )
       .toBe(1);
   });
   it('should render movie card', () => {
     expect(
       render(<MovieCard movie={mockedMovieDetails} onMovieClick={mockOnMovieClickFn} />)
-      .text()
+      .text(),
     )
     .toMatch(/I Kill Giants/);
   });
