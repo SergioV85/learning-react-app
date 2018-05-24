@@ -6,7 +6,7 @@ export interface IMoviesListRequest {
   limit?: number;
   offset?: number;
   search?: string;
-  searchBy?: 'title' | 'genre';
+  searchBy?: 'title' | 'genres';
   sortBy?: string;
   sortOrder?: 'asc' | 'desc';
 }
@@ -16,14 +16,11 @@ export interface IMoviesListResponse {
   offset: number;
   total: number;
 }
-export interface IMovieDetailsRequest {
-  id?: number;
-}
-export interface IMovieDetailsResponse extends IMovieObject {
-  id: number;
-}
 
-const apiUrl = 'http://react-cdp-api.herokuapp.com/';
+const apiUrl = 'http://react-cdp-api.herokuapp.com';
 
 export const getMoviesList = (params: IMoviesListRequest) =>
   axios.get(`${apiUrl}/movies`, { params }) as AxiosPromise<IMoviesListResponse>;
+
+export const getMovieDetails = (id: number) =>
+  axios.get(`${apiUrl}/movies/${id}`) as AxiosPromise<IMovieObject>;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies List Reducer initial state should match a snapshot 1`] = `
+Object {
+  "isLoading": false,
+}
+`;

@@ -8,7 +8,7 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
     className="c-movies-list__collection container"
   >
     <ErrorBoundary
-      errorMessage="Unfortunally, we can't show I Kill Giants preview"
+      errorMessage="Unfortunately, we can't show I Kill Giants preview"
       key="movie-card-wrapper-419831"
     >
       <MovieCard
@@ -33,11 +33,11 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
             "vote_count": 63,
           }
         }
-        onMovieClick={[Function]}
+        onMovieClick={[MockFunction]}
       />
     </ErrorBoundary>
     <ErrorBoundary
-      errorMessage="Unfortunally, we can't show The Killing of a Sacred Deer preview"
+      errorMessage="Unfortunately, we can't show The Killing of a Sacred Deer preview"
       key="movie-card-wrapper-399057"
     >
       <MovieCard
@@ -62,11 +62,11 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
             "vote_count": 509,
           }
         }
-        onMovieClick={[Function]}
+        onMovieClick={[MockFunction]}
       />
     </ErrorBoundary>
     <ErrorBoundary
-      errorMessage="Unfortunally, we can't show Kill Switch preview"
+      errorMessage="Unfortunately, we can't show Kill Switch preview"
       key="movie-card-wrapper-423988"
     >
       <MovieCard
@@ -89,11 +89,11 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
             "vote_count": 81,
           }
         }
-        onMovieClick={[Function]}
+        onMovieClick={[MockFunction]}
       />
     </ErrorBoundary>
     <ErrorBoundary
-      errorMessage="Unfortunally, we can't show Batman: The Killing Joke preview"
+      errorMessage="Unfortunately, we can't show Batman: The Killing Joke preview"
       key="movie-card-wrapper-382322"
     >
       <MovieCard
@@ -119,11 +119,11 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
             "vote_count": 618,
           }
         }
-        onMovieClick={[Function]}
+        onMovieClick={[MockFunction]}
       />
     </ErrorBoundary>
     <ErrorBoundary
-      errorMessage="Unfortunally, we can't show Kill Me Three Times preview"
+      errorMessage="Unfortunately, we can't show Kill Me Three Times preview"
       key="movie-card-wrapper-237756"
     >
       <MovieCard
@@ -147,7 +147,7 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
             "vote_count": 203,
           }
         }
-        onMovieClick={[Function]}
+        onMovieClick={[MockFunction]}
       />
     </ErrorBoundary>
   </ul>

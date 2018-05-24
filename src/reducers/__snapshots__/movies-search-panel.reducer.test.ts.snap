@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies Search Panel Reducer initial state should match a snapshot 1`] = `
+Object {
+  "search": "",
+  "searchBy": "title",
+  "sortBy": "rating",
+  "sortOrder": "desc",
+}
+`;

@@ -2,15 +2,17 @@ import { merge } from 'ramda';
 import * as MoviesSearchPanelActionTypes from './../action-types/movies-search-panel.action-types';
 
 export interface IMoviesSearchPanelStore {
-  keyword?: string;
+  search?: string;
+  searchBy?: string;
   sortBy?: string;
-  type?: string;
+  sortOrder?: string;
 }
 
 const defaultState = {
-  keyword: '',
+  search: '',
+  searchBy: 'title',
   sortBy: 'rating',
-  type: 'title',
+  sortOrder: 'desc',
 };
 
 export const moviesSearchPanelReducer = (
@@ -18,11 +20,14 @@ export const moviesSearchPanelReducer = (
     action: any) => {
   switch (action.type) {
     case MoviesSearchPanelActionTypes.MoviesSearchPanelActionTypes.UpdateSearchKeyword:
-      const keyword = action.payload;
-      return merge(state, { keyword });
+      const search = action.payload;
+      return merge(state, { search });
     case MoviesSearchPanelActionTypes.MoviesSearchPanelActionTypes.UpdateSearchType:
-      const type = action.payload;
-      return merge(state, { type });
+      const searchBy = action.payload;
+      return merge(state, { searchBy });
+    case MoviesSearchPanelActionTypes.MoviesSearchPanelActionTypes.UpdateSortOrder:
+      const sortOrder = action.payload;
+      return merge(state, { sortOrder });
     case MoviesSearchPanelActionTypes.MoviesSearchPanelActionTypes.UpdateSortType:
       const sortBy = action.payload;
       return merge(state, { sortBy });

@@ -1,47 +1,26 @@
-// import * as MoviesListActionTypes from './../action-types/movies-list.action-types';
+import * as MoviesListActionTypes from './../action-types/movies-list.action-types';
+import { getMoviesList } from './../services/movies.service';
 
-/*
-export const getMovies = () => {};
+const searchMovies = () => {
+  return (dispatch: any, getState: any) => {
+    const { searchParams } = getState();
+    dispatch({
+      payload: searchParams,
+      type: MoviesListActionTypes.MoviesListActionTypes.GetMovies,
+    });
 
-public changeSearchInput(event: React.ChangeEvent<HTMLInputElement>) {
-  this.setState({
-    search: {
-      ...this.state.search,
-      keyword: event.currentTarget.value
-    }
-  })
-}
-public changeSearchType(event: React.ChangeEvent<HTMLInputElement>) {
-  this.setState({
-    search: {
-      ...this.state.search,
-      type: event.currentTarget.value
-    }
-  })
-}
-public changeSortingType(event: React.ChangeEvent<HTMLInputElement>) {
-  this.setState({
-    search: {
-      ...this.state.search,
-      sortBy: event.currentTarget.value
-    }
-  })
-}
-public searchMovies() {
-  this.setState({
-    movies: {
-      ...this.state.movies,
-      list: mockedMoviesList
-    }
-  })
-}
-public selectMovie(movieId: number) {
-  this.setState({
-    movies: {
-      ...this.state.movies,
-      selectedMovie: mockedMovieDetails
-    }
-  });
-  console.log('selected movieId', movieId);
-}
-*/
+    return getMoviesList(searchParams)
+      .then((list) => dispatch({
+        payload: list.data,
+        type: MoviesListActionTypes.MoviesListActionTypes.GetMoviesComplete,
+      }))
+      .catch((err) => dispatch({
+        payload: err,
+        type: MoviesListActionTypes.MoviesListActionTypes.GetMoviesError,
+      }));
+  };
+};
+
+export const MoviesListActions = {
+  searchMovies,
+};

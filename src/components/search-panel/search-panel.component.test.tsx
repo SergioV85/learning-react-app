@@ -10,7 +10,7 @@ describe('Search Panel component', () => {
   const searchPanelComponent = shallow(
     <SearchPanel
         searchType='title'
-        keyword=''
+        search=''
         onChangeType={mockOnChangeTypeFn}
         onInputChange={mockOnInputChangeFn}
         onSearchMovies={mockOnSearchMoviesFn}
@@ -37,7 +37,7 @@ describe('Search Panel component', () => {
       mount(
       <SearchPanel
           searchType='title'
-          keyword=''
+          search=''
           onChangeType={mockOnChangeTypeFn}
           onInputChange={mockOnInputChangeFn}
           onSearchMovies={mockOnSearchMoviesFn}
@@ -51,7 +51,7 @@ describe('Search Panel component', () => {
     expect(
       render(<SearchPanel
         searchType='title'
-        keyword=''
+        search=''
         onChangeType={mockOnChangeTypeFn}
         onInputChange={mockOnInputChangeFn}
         onSearchMovies={mockOnSearchMoviesFn}

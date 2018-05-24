@@ -11,9 +11,9 @@ exports[`Header Component Snapshot should renders correctly 1`] = `
   </span>
   <button
     className="btn c-header__back-button"
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
-    Search
+     Search 
   </button>
 </div>
 `;

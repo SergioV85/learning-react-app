@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
 import './styles.scss';
 
@@ -11,9 +12,9 @@ import { rootReducer } from './reducers/root.reducer';
 
 const store = createStore(
   rootReducer,
-  devToolsEnhancer({
-    name: 'React Learning App',
-  }),
+  composeWithDevTools(
+    applyMiddleware(thunk),
+  ),
 );
 
 render(

@@ -11,9 +11,10 @@ exports[`Search Panel Component Snapshot should renders correctly 1`] = `
   </h2>
   <input
     className="c-search-panel__input"
-    onChange={[Function]}
+    onChange={[MockFunction]}
     placeholder="Find your movie"
     type="text"
+    value=""
   />
   <div
     className="c-search-panel__controls-row"
@@ -36,7 +37,7 @@ exports[`Search Panel Component Snapshot should renders correctly 1`] = `
           <input
             checked={false}
             name="search-type"
-            onChange={[Function]}
+            onChange={[MockFunction]}
             type="radio"
             value="title"
           />
@@ -48,17 +49,17 @@ exports[`Search Panel Component Snapshot should renders correctly 1`] = `
           <input
             checked={false}
             name="search-type"
-            onChange={[Function]}
+            onChange={[MockFunction]}
             type="radio"
-            value="genre"
+            value="genres"
           />
-          Genre
+          Genres
         </label>
       </div>
     </div>
     <button
       className="c-search-panel__search-button"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       Search
     </button>

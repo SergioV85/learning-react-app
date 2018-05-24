@@ -8,7 +8,6 @@ interface IHeaderProps {
 export const Header = (props: IHeaderProps) =>
   <div className='c-header'>
     <span className='c-header__logo'>netflixroulette</span>
-    // tslint:disable-next-line:max-line-length
     {props.showBackButton ? <button className='btn c-header__back-button' onClick={props.onBackToList}> Search </button> : null}
   </div>;
 // tslint:enable:max-line-length

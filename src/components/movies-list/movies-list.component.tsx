@@ -3,7 +3,7 @@ import { ErrorBoundary } from './../error-boundary/error-boundary.component';
 import { IMovieObject, MovieCard } from './../movie-card/movie-card.component';
 interface IMoviesListProps {
   movies: IMovieObject[];
-  onMovieClick(): void;
+  onMovieClick(id: number): void;
 }
 
 export class MoviesList extends React.Component<IMoviesListProps, {}> {

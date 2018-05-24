@@ -9,7 +9,7 @@ describe('Search Panel Component Snapshot', () => {
     const searchPanelSnapshot = shallow(
       <SearchPanel
         searchType='tilte'
-        keyword=''
+        search=''
         onChangeType={mockedFn}
         onInputChange={mockedFn}
         onSearchMovies={mockedFn}

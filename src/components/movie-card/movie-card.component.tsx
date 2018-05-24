@@ -24,10 +24,12 @@ interface IMovieCardProps {
 export class MovieCard extends React.Component<IMovieCardProps, {}> {
   constructor(props: IMovieCardProps) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   public render() {
-    return <div className='c-movie-card' onClick={this.props.onMovieClick.bind(this.props.movie.id)}>
+    return <div className='c-movie-card' onClick={this.handleClick}>
       <img className='c-movie-card__poster' src={this.props.movie.poster_path} />
       <div className='c-movie-card__title-and-year'>
         <span className='c-movie-card__title'>{this.props.movie.title}</span>
@@ -39,5 +41,9 @@ export class MovieCard extends React.Component<IMovieCardProps, {}> {
         {this.props.movie.genres.join(', ')}
       </div>
     </div>;
+  }
+
+  private handleClick() {
+    this.props.onMovieClick(this.props.movie.id);
   }
 }

@@ -20,15 +20,11 @@ describe('Header component', () => {
       .toBe(true);
   });
   it('should show "Back to list" button on Movie details page', () => {
-    expect(
-      headerForDetailsPage
-        .containsMatchingElement(
-          <button className='btn c-header__back-button'>
-            Search
-          </button>,
-        ),
-      )
-      .toBe(true);
+    expect(headerForDetailsPage
+      .find('.c-header__back-button')
+      .length,
+    )
+    .toEqual(1);
   });
 
   it('should be selectable by class "c-header"', () => {
@@ -58,7 +54,7 @@ describe('Header component', () => {
       render(<Header showBackButton={true} onBackToList={mockBackToListFn} />)
       .text(),
     )
-    .toEqual('netflixrouletteSearch');
+    .toEqual('netflixroulette Search ');
   });
 
   it('should emit output event on click "Back to list button', () => {

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 interface ISearchPanelProps {
   searchType: string;
-  keyword: string;
+  search: string;
   onChangeType(): void;
   onInputChange(): void;
   onSearchMovies(): void;
@@ -20,6 +20,7 @@ export class SearchPanel extends React.Component<ISearchPanelProps, {}> {
           type='text'
           className='c-search-panel__input'
           placeholder='Find your movie'
+          value={this.props.search}
           onChange={this.props.onInputChange}
       />
       <div className='c-search-panel__controls-row'>
@@ -43,16 +44,16 @@ export class SearchPanel extends React.Component<ISearchPanelProps, {}> {
             </label>
             <label
                 // tslint:disable-next-line:max-line-length
-                className={`c-search-panel__search-type-button c-search-panel__search-type-button--genre btn ${this.getActiveButton('genre')}`}
+                className={`c-search-panel__search-type-button c-search-panel__search-type-button--genre btn ${this.getActiveButton('genres')}`}
             >
               <input
                   type='radio'
                   name='search-type'
-                  value='genre'
+                  value='genres'
                   onChange={this.props.onChangeType}
-                  checked={this.props.searchType === 'genre'}
+                  checked={this.props.searchType === 'genres'}
               />
-              Genre
+              Genres
             </label>
           </div>
         </div>

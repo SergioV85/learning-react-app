@@ -15,28 +15,23 @@ export interface IMoviesPageProps {
     selectedMovie: IMovieObject | null;
   };
   search: {
-    keyword: string;
+    searchBy: string;
+    search: string;
     sortBy: string;
-    type: string;
+    sortOrder: string;
   };
   backToList(): void;
   changeSearchInput(): void;
   changeSearchType(): void;
+  changeSortingOrder(): void;
   changeSortingType(): void;
   searchMovies(): void;
-  selectMovie(): void;
+  selectMovie(id: number): void;
 }
 
 export class MoviesPage extends React.Component<IMoviesPageProps, {}> {
-  private backToList: () => void;
-  private changeSortingType: () => void;
-  private selectMovie: () => void;
-
   constructor(props: IMoviesPageProps) {
     super(props);
-    this.backToList = props.backToList;
-    this.changeSortingType = props.changeSortingType;
-    this.selectMovie = props.selectMovie;
   }
   public render() {
     return (
@@ -46,7 +41,7 @@ export class MoviesPage extends React.Component<IMoviesPageProps, {}> {
           <div className='p-2 container'>
             <Header
                 showBackButton={this.props.movies.selectedMovie !== null}
-                onBackToList={this.backToList}
+                onBackToList={this.props.backToList}
             />
             {this.panelOrDetails}
           </div>
@@ -55,15 +50,17 @@ export class MoviesPage extends React.Component<IMoviesPageProps, {}> {
       <div className='c-page__status-bar'>
         <StatusBarPanel
             foundMovies={this.props.movies.list.length}
-            currentSorting={this.props.search.sortBy}
-            onChangeSorting={this.changeSortingType}
+            currentSortingOrder={this.props.search.sortOrder}
+            currentSortingType={this.props.search.sortBy}
+            onChangeSortingOrder={this.props.changeSortingOrder}
+            onChangeSortingType={this.props.changeSortingType}
         />
       </div>
       <div className='c-page__movies'>
         <ErrorBoundary key='movies-list-wrapper' errorMessage='Unfortunately, we cant show movies list'>
           <MoviesList
               movies={this.props.movies.list}
-              onMovieClick={this.selectMovie}
+              onMovieClick={this.props.selectMovie}
           />
         </ErrorBoundary>
       </div>
@@ -89,8 +86,8 @@ export class MoviesPage extends React.Component<IMoviesPageProps, {}> {
             errorMessage='Unfortunately, we can not show search panel'
       >
           <SearchPanel
-              searchType={this.props.search.type}
-              keyword={this.props.search.keyword}
+              searchType={this.props.search.searchBy}
+              search={this.props.search.search}
               onChangeType={this.props.changeSearchType}
               onInputChange={this.props.changeSearchInput}
               onSearchMovies={this.props.searchMovies}

@@ -14,18 +14,18 @@ exports[`Movies Page Snapshot should render default page 1`] = `
         className="p-2 container"
       >
         <Component
-          onBackToList={[Function]}
+          onBackToList={[MockFunction]}
           showBackButton={false}
         />
         <ErrorBoundary
-          errorMessage="Unfortunally, we can't show search panel"
+          errorMessage="Unfortunately, we can not show search panel"
           key="search-panel-wrapper"
         >
           <SearchPanel
-            keyword=""
-            onChangeType={[Function]}
-            onInputChange={[Function]}
-            onSearchMovies={[Function]}
+            onChangeType={[MockFunction]}
+            onInputChange={[MockFunction]}
+            onSearchMovies={[MockFunction]}
+            search=""
             searchType="title"
           />
         </ErrorBoundary>
@@ -36,21 +36,23 @@ exports[`Movies Page Snapshot should render default page 1`] = `
     className="c-page__status-bar"
   >
     <StatusBarPanel
-      currentSorting="rating"
+      currentSortingOrder="asc"
+      currentSortingType="rating"
       foundMovies={0}
-      onChangeSorting={[Function]}
+      onChangeSortingOrder={[MockFunction]}
+      onChangeSortingType={[MockFunction]}
     />
   </div>
   <div
     className="c-page__movies"
   >
     <ErrorBoundary
-      errorMessage="Unfortunally, we can't show movies list"
+      errorMessage="Unfortunately, we cant show movies list"
       key="movies-list-wrapper"
     >
       <MoviesList
         movies={Array []}
-        onMovieClick={[Function]}
+        onMovieClick={[MockFunction]}
       />
     </ErrorBoundary>
   </div>
