@@ -14,7 +14,6 @@ describe('Status Bar Panel component', () => {
       onChangeSortingOrder={mockOnChangeSortingOrderFn}
       onChangeSortingType={mockOnChangeSortingTypeFn}
     />);
-  const statusBarPanelInstance = statusBarPanel.instance() as StatusBarPanel;
 
   it('should render status bar panel without throwing an error', () => {
     expect(statusBarPanel
@@ -58,27 +57,4 @@ describe('Status Bar Panel component', () => {
     )
     .toMatch(/2 movies found/);
   });
-  it('should emit output event on sorting change', () => {
-    statusBarPanel.find('.c-status-bar__sort-type-button--rating').find('input').simulate('change');
-    expect(mockOnChangeSortingTypeFn).toBeCalled();
-  });
-  describe('getActiveButton', () => {
-    it('should return className "active" for active buttons', () => {
-      statusBarPanelInstance.getActiveSortTypeButton('release_date');
-      expect(statusBarPanel
-        .find('.c-status-bar__sort-type-button--release-date')
-        .hasClass('active'),
-      )
-      .toBeTruthy();
-    });
-    it('should return className "" for not-active buttons', () => {
-      statusBarPanelInstance.getActiveSortTypeButton('rating');
-      expect(statusBarPanel
-        .find('.c-status-bar__sort-type-button--rating')
-        .hasClass('active'),
-      )
-      .toBeFalsy();
-    });
-  });
-
 });

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle Switcher Component Snapshot should renders correctly 1`] = `
+<div
+  className="c-toggle-switcher "
+>
+  <span
+    className="c-toggle-switcher-title"
+  >
+    Sort By
+  </span>
+  <div
+    className="c-toggle-switcher-buttons btn-group btn-group-toggle"
+    data-toggle="buttons"
+  >
+    <label
+      className="c-toggle-switcher-button btn btn-link rating active"
+      key="c-toggle-switcher-button-0"
+    >
+      <input
+        checked={true}
+        name="sort-by"
+        onChange={[MockFunction]}
+        type="radio"
+        value="rating"
+      />
+      Rating
+    </label>
+    <label
+      className="c-toggle-switcher-button btn btn-link release_date "
+      key="c-toggle-switcher-button-1"
+    >
+      <input
+        checked={false}
+        name="sort-by"
+        onChange={[MockFunction]}
+        type="radio"
+        value="release_date"
+      />
+      Release Date
+    </label>
+  </div>
+</div>
+`;

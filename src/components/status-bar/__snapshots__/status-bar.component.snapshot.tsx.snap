@@ -10,85 +10,47 @@ exports[`Status Bar Panel Component Snapshot should renders correctly 1`] = `
     2
      movies found
   </span>
-  <div
-    className="c-status-bar__sorting-type"
-  >
-    <span
-      className="c-status-bar__sort-type-title"
-    >
-      Sort by
-    </span>
-    <div
-      className="c-status-bar__sort-type-buttons btn-group btn-group-toggle"
-      data-toggle="buttons"
-    >
-      <label
-        className="c-status-bar__sort-type-button c-status-bar__sort-type-button--release-date btn btn-link "
-      >
-        <input
-          checked={false}
-          name="sort-type"
-          onChange={[MockFunction]}
-          type="radio"
-          value="release_date"
-        />
-        Release date
-      </label>
-      <label
-        className="c-status-bar__sort-type-button c-status-bar__sort-type-button--rating btn active"
-      >
-        <input
-          checked={true}
-          name="search-type"
-          onChange={[MockFunction]}
-          type="radio"
-          value="rating"
-        />
-        Rating
-      </label>
-    </div>
-  </div>
-  <div
-    className="c-status-bar__sorting-order"
-  >
-    <span
-      className="c-status-bar__sort-order-title"
-    >
-      Sort by
-    </span>
-    <div
-      className="c-status-bar__sort-order-buttons btn-group btn-group-toggle"
-      data-toggle="buttons"
-    >
-      <label
-        className="c-status-bar__sort-order-button c-status-bar__sort-order-button--asc btn active"
-      >
-        <input
-          checked={true}
-          name="sort-order"
-          onChange={[MockFunction]}
-          type="radio"
-          value="asc"
-        />
-        <i
-          className="icon-arrow-up"
-        />
-      </label>
-      <label
-        className="c-status-bar__sort-order-button c-status-bar__sort-order-button--desc btn "
-      >
-        <input
-          checked={false}
-          name="search-order"
-          onChange={[MockFunction]}
-          type="radio"
-          value="desc"
-        />
-        <i
-          className="icon-arrow-down"
-        />
-      </label>
-    </div>
-  </div>
+  <ToggleSwitcher
+    buttonViewClass="btn-link"
+    buttons={
+      Array [
+        Object {
+          "label": "Release date",
+          "value": "release_date",
+        },
+        Object {
+          "label": "Rating",
+          "value": "rating",
+        },
+      ]
+    }
+    cssClass="c-status-bar__sorting-type"
+    currentValue="rating"
+    name="sort-type"
+    onToggleChange={[MockFunction]}
+    title="Sort by"
+    type="radio"
+  />
+  <ToggleSwitcher
+    buttonViewClass=""
+    buttons={
+      Array [
+        Object {
+          "icon": "icon-arrow-up",
+          "value": "asc",
+        },
+        Object {
+          "icon": "icon-arrow-down",
+          "value": "desc",
+        },
+      ]
+    }
+    cssClass="c-status-bar__sorting-order"
+    currentValue="asc"
+    name="sort-order"
+    onToggleChange={[MockFunction]}
+    title="Sort order"
+    type="radio"
+  />
 </div>
 `;

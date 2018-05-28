@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ToggleSwitcher } from './../../shared-components/toggle-switcher/toggle-switcher.component';
 
 interface IStatusBarProps {
   foundMovies: number;
@@ -9,6 +10,27 @@ interface IStatusBarProps {
 }
 
 export class StatusBarPanel extends React.Component<IStatusBarProps, {}> {
+  private sortingOrderButtons = [
+    {
+      icon: 'icon-arrow-up',
+      value: 'asc',
+    },
+    {
+      icon: 'icon-arrow-down',
+      value: 'desc',
+    },
+  ];
+  private sortingTypeButtons = [
+    {
+      label: 'Release date',
+      value: 'release_date',
+    },
+    {
+      label: 'Rating',
+      value: 'rating',
+    },
+  ];
+
   constructor(props: IStatusBarProps) {
     super(props);
   }
@@ -17,80 +39,28 @@ export class StatusBarPanel extends React.Component<IStatusBarProps, {}> {
     if (this.props.foundMovies > 0) {
       return <div className='c-status-bar p-2 container'>
         <span className='c-status-bar__movies-quantity'>{this.props.foundMovies} movies found</span>
-        <div className='c-status-bar__sorting-type'>
-          <span className='c-status-bar__sort-type-title'>
-            Sort by
-          </span>
-          <div className='c-status-bar__sort-type-buttons btn-group btn-group-toggle' data-toggle='buttons'>
-            <label
-                // tslint:disable-next-line:max-line-length
-                className={`c-status-bar__sort-type-button c-status-bar__sort-type-button--release-date btn btn-link ${this.getActiveSortTypeButton('release_date')}`}
-            >
-              <input
-                  type='radio'
-                  name='sort-type'
-                  value='release_date'
-                  onChange={this.props.onChangeSortingType}
-                  checked={this.props.currentSortingType === 'release_date'}
-              />
-                Release date
-            </label>
-            <label
-                // tslint:disable-next-line:max-line-length
-                className={`c-status-bar__sort-type-button c-status-bar__sort-type-button--rating btn ${this.getActiveSortTypeButton('rating')}`}
-            >
-              <input
-                  type='radio'
-                  name='search-type'
-                  value='rating'
-                  onChange={this.props.onChangeSortingType}
-                  checked={this.props.currentSortingType === 'rating'}
-              />
-              Rating
-            </label>
-          </div>
-        </div>
-        <div className='c-status-bar__sorting-order'>
-          <span className='c-status-bar__sort-order-title'>
-            Sort by
-          </span>
-          <div className='c-status-bar__sort-order-buttons btn-group btn-group-toggle' data-toggle='buttons'>
-            <label
-                // tslint:disable-next-line:max-line-length
-                className={`c-status-bar__sort-order-button c-status-bar__sort-order-button--asc btn ${this.getActiveSortOrderButton('asc')}`}
-            >
-              <input
-                  type='radio'
-                  name='sort-order'
-                  value='asc'
-                  onChange={this.props.onChangeSortingOrder}
-                  checked={this.props.currentSortingOrder === 'asc'}
-              />
-                <i className='icon-arrow-up' />
-            </label>
-            <label
-                // tslint:disable-next-line:max-line-length
-                className={`c-status-bar__sort-order-button c-status-bar__sort-order-button--desc btn ${this.getActiveSortOrderButton('desc')}`}
-            >
-              <input
-                  type='radio'
-                  name='search-order'
-                  value='desc'
-                  onChange={this.props.onChangeSortingOrder}
-                  checked={this.props.currentSortingOrder === 'desc'}
-              />
-              <i className='icon-arrow-down' />
-            </label>
-          </div>
-        </div>
+        <ToggleSwitcher
+            cssClass='c-status-bar__sorting-type'
+            title='Sort by'
+            buttonViewClass='btn-link'
+            buttons={this.sortingTypeButtons}
+            currentValue={this.props.currentSortingType}
+            name='sort-type'
+            type='radio'
+            onToggleChange={this.props.onChangeSortingType}
+        />
+        <ToggleSwitcher
+            cssClass='c-status-bar__sorting-order'
+            title='Sort order'
+            buttonViewClass=''
+            buttons={this.sortingOrderButtons}
+            currentValue={this.props.currentSortingOrder}
+            name='sort-order'
+            type='radio'
+            onToggleChange={this.props.onChangeSortingOrder}
+        />
       </div>;
     }
     return null;
-  }
-  public getActiveSortTypeButton(type: string): string {
-    return this.props.currentSortingType === type ? 'active' : '';
-  }
-  public getActiveSortOrderButton(type: string): string {
-    return this.props.currentSortingOrder === type ? 'active' : '';
   }
 }

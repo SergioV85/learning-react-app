@@ -31,7 +31,7 @@
     justify-content: space-between;
     margin-top: 15px;
   }
-  &__search-type {
+  .c-toggle-switcher {
     &-title {
       color: $primary-grey;
       font-family: $main-font;
@@ -50,6 +50,7 @@
 
       &.active {
         background-color: $light-red;
+        color: $primary-grey;
       }
     }
   }

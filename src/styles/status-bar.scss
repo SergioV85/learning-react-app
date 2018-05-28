@@ -11,29 +11,4 @@
     font-size: 0.9rem;
     font-weight: 700;
   }
-  &__sort-order,
-  &__sort-type {
-    &-title {
-      color: $primary-dark;
-      font-family: $main-font;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-    &-button {
-      color: $primary-dark;
-      font-family: $main-font;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-decoration: none;
-
-      &:hover,
-      &:active {
-        text-decoration: none;
-      }
-    
-      &.active {
-        color: $light-red;
-      }
-    }
-  }
 }

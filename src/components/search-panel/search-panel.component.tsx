@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ToggleSwitcher } from './../../shared-components/toggle-switcher/toggle-switcher.component';
 
 interface ISearchPanelProps {
   searchType: string;
@@ -9,6 +10,17 @@ interface ISearchPanelProps {
 }
 
 export class SearchPanel extends React.Component<ISearchPanelProps, {}> {
+  private searchToggleButtons = [
+    {
+      label: 'Title',
+      value: 'title',
+    },
+    {
+      label: 'Genres',
+      value: 'genres',
+    },
+  ];
+
   constructor(props: ISearchPanelProps) {
     super(props);
   }
@@ -24,39 +36,15 @@ export class SearchPanel extends React.Component<ISearchPanelProps, {}> {
           onChange={this.props.onInputChange}
       />
       <div className='c-search-panel__controls-row'>
-        <div className='c-search-panel__search-type'>
-          <span className='c-search-panel__search-type-title'>
-            Search by
-          </span>
-          <div className='c-search-panel__search-type-buttons btn-group btn-group-toggle' data-toggle='buttons'>
-            <label
-                // tslint:disable-next-line:max-line-length
-                className={`c-search-panel__search-type-button c-search-panel__search-type-button--title btn ${this.getActiveButton('title')}`}
-            >
-              <input
-                  type='radio'
-                  name='search-type'
-                  value='title'
-                  onChange={this.props.onChangeType}
-                  checked={this.props.searchType === 'title'}
-              />
-                Title
-            </label>
-            <label
-                // tslint:disable-next-line:max-line-length
-                className={`c-search-panel__search-type-button c-search-panel__search-type-button--genre btn ${this.getActiveButton('genres')}`}
-            >
-              <input
-                  type='radio'
-                  name='search-type'
-                  value='genres'
-                  onChange={this.props.onChangeType}
-                  checked={this.props.searchType === 'genres'}
-              />
-              Genres
-            </label>
-          </div>
-        </div>
+        <ToggleSwitcher
+            title='Search by'
+            buttonViewClass='c-search-panel__search-type-button--title'
+            buttons={this.searchToggleButtons}
+            currentValue={this.props.searchType}
+            name='search-type'
+            type='radio'
+            onToggleChange={this.props.onChangeType}
+        />
         <button
             className='c-search-panel__search-button'
             onClick={this.props.onSearchMovies}
