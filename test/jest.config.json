@@ -15,5 +15,10 @@
   ],
   "coverageDirectory": "./coverage",
   "setupTestFrameworkScriptFile": "./test/setupTests.ts",
-  "snapshotSerializers": ["enzyme-to-json/serializer"]
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "globals": {
+    "ts-jest": {
+      "useExperimentalLanguageServer": true
+    }
+  }
 }

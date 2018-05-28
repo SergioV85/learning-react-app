@@ -2,7 +2,7 @@ import * as moxios from 'moxios';
 import createMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import * as MovieDetailsActionTypes from './../action-types/movie-details.action-types';
+import MovieDetailsActionTypes from './../action-types/movie-details.action-types';
 import { mockedMovieDetails } from './../components/movies-list/mocked-details';
 import { MovieDetailsActions } from './movie-details.actions';
 
@@ -23,7 +23,7 @@ describe('Movie details actions', () => {
     });
     it('should set selected movie to null', () => {
       const mockedBackToList = {
-        type: MovieDetailsActionTypes.MovieDetailsActionTypes.BackToList,
+        type: MovieDetailsActionTypes.BackToList,
       };
 
       dispatch(MovieDetailsActions.backToListAction());
@@ -34,9 +34,6 @@ describe('Movie details actions', () => {
     let store: any;
     beforeEach(() => {
       store = mockStore();
-    });
-    afterEach(() => {
-      // dispatch.mockClear();
     });
     it('should dispatch request with selected movie id and save movie details to store', async () => {
       moxios.wait(() => {
@@ -50,11 +47,11 @@ describe('Movie details actions', () => {
       const actions = store.getActions();
       expect(actions[0]).toEqual({
         payload: 123,
-        type: MovieDetailsActionTypes.MovieDetailsActionTypes.GetMovie,
+        type: MovieDetailsActionTypes.GetMovie,
       });
       expect(actions[1]).toEqual({
         payload: mockedMovieDetails,
-        type: MovieDetailsActionTypes.MovieDetailsActionTypes.GetMovieComplete,
+        type: MovieDetailsActionTypes.GetMovieComplete,
       });
     });
     it('should dispatch an error', async () => {
@@ -69,10 +66,10 @@ describe('Movie details actions', () => {
       const actions = store.getActions();
       expect(actions[0]).toEqual({
         payload: 321,
-        type: MovieDetailsActionTypes.MovieDetailsActionTypes.GetMovie,
+        type: MovieDetailsActionTypes.GetMovie,
       });
       expect(actions[1]).toMatchObject({
-        type: MovieDetailsActionTypes.MovieDetailsActionTypes.GetMovieError,
+        type: MovieDetailsActionTypes.GetMovieError,
       });
     });
   });

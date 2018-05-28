@@ -1,4 +1,4 @@
-import { MoviesSearchPanelActions } from './../actions/movies-search-panel.actions';
+// import { MoviesSearchPanelActions } from './../actions/movies-search-panel.actions';
 import { moviesSearchPanelReducer } from './movies-search-panel.reducer';
 
 const mockedState = {

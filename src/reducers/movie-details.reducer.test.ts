@@ -1,4 +1,4 @@
-import { MovieDetailsActions } from './../actions/movie-details.actions';
+// import { MovieDetailsActions } from './../actions/movie-details.actions';
 import { movieDetailsReducer } from './movie-details.reducer';
 
 const mockedState = {

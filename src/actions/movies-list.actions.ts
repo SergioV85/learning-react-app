@@ -1,4 +1,4 @@
-import * as MoviesListActionTypes from './../action-types/movies-list.action-types';
+import MoviesListActionTypes from './../action-types/movies-list.action-types';
 import { getMoviesList } from './../services/movies.service';
 
 const searchMovies = () => {
@@ -6,17 +6,17 @@ const searchMovies = () => {
     const { searchParams } = getState();
     dispatch({
       payload: searchParams,
-      type: MoviesListActionTypes.MoviesListActionTypes.GetMovies,
+      type: MoviesListActionTypes.GetMovies,
     });
 
     return getMoviesList(searchParams)
       .then((list) => dispatch({
         payload: list.data,
-        type: MoviesListActionTypes.MoviesListActionTypes.GetMoviesComplete,
+        type: MoviesListActionTypes.GetMoviesComplete,
       }))
       .catch((err) => dispatch({
         payload: err,
-        type: MoviesListActionTypes.MoviesListActionTypes.GetMoviesError,
+        type: MoviesListActionTypes.GetMoviesError,
       }));
   };
 };

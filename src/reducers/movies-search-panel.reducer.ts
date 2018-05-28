@@ -1,5 +1,5 @@
 import { merge } from 'ramda';
-import * as MoviesSearchPanelActionTypes from './../action-types/movies-search-panel.action-types';
+import MoviesSearchPanelActionTypes from './../action-types/movies-search-panel.action-types';
 
 export interface IMoviesSearchPanelStore {
   search?: string;
@@ -19,16 +19,16 @@ export const moviesSearchPanelReducer = (
     state: IMoviesSearchPanelStore = defaultState,
     action: any) => {
   switch (action.type) {
-    case MoviesSearchPanelActionTypes.MoviesSearchPanelActionTypes.UpdateSearchKeyword:
+    case MoviesSearchPanelActionTypes.UpdateSearchKeyword:
       const search = action.payload;
       return merge(state, { search });
-    case MoviesSearchPanelActionTypes.MoviesSearchPanelActionTypes.UpdateSearchType:
+    case MoviesSearchPanelActionTypes.UpdateSearchType:
       const searchBy = action.payload;
       return merge(state, { searchBy });
-    case MoviesSearchPanelActionTypes.MoviesSearchPanelActionTypes.UpdateSortOrder:
+    case MoviesSearchPanelActionTypes.UpdateSortOrder:
       const sortOrder = action.payload;
       return merge(state, { sortOrder });
-    case MoviesSearchPanelActionTypes.MoviesSearchPanelActionTypes.UpdateSortType:
+    case MoviesSearchPanelActionTypes.UpdateSortType:
       const sortBy = action.payload;
       return merge(state, { sortBy });
     default:
