@@ -11,7 +11,8 @@
     "lint": "tslint --project tsconfig.json",
     "test": "jest --config ./test/jest.config.json",
     "test:update": "jest --config ./test/jest.config.json --updateSnapshot",
-    "test:coverage": "jest --config ./test/jest.config.json --collectCoverage true"
+    "test:coverage": "jest --config ./test/jest.config.json --collectCoverage true",
+    "test:e2e": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "cypress": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
