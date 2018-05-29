@@ -1,6 +1,6 @@
 import { merge } from 'ramda';
 import MoviesListActionTypes from './../action-types/movies-list.action-types';
-import { IMovieObject } from './../components/movie-card/movie-card.component';
+import { IMovieObject } from './../components/movie-details/movie-details.component';
 
 export interface IMoviesListStore {
   isLoading: boolean;

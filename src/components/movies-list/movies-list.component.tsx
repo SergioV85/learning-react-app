@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ErrorBoundary } from './../error-boundary/error-boundary.component';
-import { IMovieObject, MovieCard } from './../movie-card/movie-card.component';
+import { IMovieObject, MovieDetails } from './../movie-details/movie-details.component';
 interface IMoviesListProps {
   movies: IMovieObject[];
   onMovieClick(id: number): void;
@@ -30,7 +30,7 @@ export class MoviesList extends React.Component<IMoviesListProps, {}> {
       key={`movie-card-wrapper-${movie.id}`}
       errorMessage={`Unfortunately, we can't show ${movie.title} preview`}
     >
-      <MovieCard key={movie.id} movie={movie} onMovieClick={this.props.onMovieClick} />
+      <MovieDetails key={movie.id} movie={movie} viewType='card' onMovieClick={this.props.onMovieClick} />
     </ErrorBoundary>;
   }
 }

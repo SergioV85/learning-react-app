@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
-import { IMovieObject } from './../components/movie-card/movie-card.component';
+import { IMovieObject } from './../components/movie-details/movie-details.component';
 
 export interface IMoviesListRequest {
   filter?: string[];

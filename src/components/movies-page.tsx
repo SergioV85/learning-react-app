@@ -3,8 +3,8 @@ import * as React from 'react';
 import { ErrorBoundary } from './error-boundary/error-boundary.component';
 import { Footer } from './footer/footer.component';
 import { Header } from './header/header.component';
-import { IMovieObject } from './movie-card/movie-card.component';
-import { MovieDetails } from './movie-details/movie-details.component';
+import { IMovieObject, MovieDetails } from './movie-details/movie-details.component';
+import { MoviesEmptyList } from './movies-empty-list/movies-empty-list.component';
 import { MoviesList } from './movies-list/movies-list.component';
 import { SearchPanel } from './search-panel/search-panel.component';
 import { StatusBarPanel } from './status-bar/status-bar.component';
@@ -32,6 +32,8 @@ export interface IMoviesPageProps {
 export class MoviesPage extends React.Component<IMoviesPageProps, {}> {
   constructor(props: IMoviesPageProps) {
     super(props);
+
+    this.handlePanelClick = this.handlePanelClick.bind(this);
   }
   public render() {
     return (
@@ -57,12 +59,7 @@ export class MoviesPage extends React.Component<IMoviesPageProps, {}> {
         />
       </div>
       <div className='c-page__movies'>
-        <ErrorBoundary key='movies-list-wrapper' errorMessage='Unfortunately, we cant show movies list'>
-          <MoviesList
-              movies={this.props.movies.list}
-              onMovieClick={this.props.selectMovie}
-          />
-        </ErrorBoundary>
+        {this.moviesListOrMessage}
       </div>
       <div className='c-page__footer'>
         <div className='p-2 container'>
@@ -79,7 +76,7 @@ export class MoviesPage extends React.Component<IMoviesPageProps, {}> {
             key='movie-details-wrapper'
             errorMessage='Unfortunately, error happens during showing details of selected movie'
       >
-          <MovieDetails selectedMovie={this.props.movies.selectedMovie} />
+          <MovieDetails movie={this.props.movies.selectedMovie} viewType='full' onMovieClick={this.handlePanelClick} />
       </ErrorBoundary>
       : <ErrorBoundary
             key='search-panel-wrapper'
@@ -94,4 +91,19 @@ export class MoviesPage extends React.Component<IMoviesPageProps, {}> {
           />
       </ErrorBoundary>;
   }
+  private get moviesListOrMessage() {
+    return this.props.movies.list.length !== 0
+      ? <ErrorBoundary key='movies-list-wrapper' errorMessage='Unfortunately, we cant show movies list'>
+          <MoviesList
+              movies={this.props.movies.list}
+              onMovieClick={this.props.selectMovie}
+          />
+        </ErrorBoundary>
+      : <ErrorBoundary key='movies-empty-message-wrapper' errorMessage='Unfortunately, we cant show message'>
+          <MoviesEmptyList />
+        </ErrorBoundary>;
+  }
+
+  // tslint:disable-next-line:no-empty
+  private handlePanelClick() {}
 }

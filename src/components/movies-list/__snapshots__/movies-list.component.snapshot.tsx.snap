@@ -11,7 +11,7 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
       errorMessage="Unfortunately, we can't show I Kill Giants preview"
       key="movie-card-wrapper-419831"
     >
-      <MovieCard
+      <MovieDetails
         key="419831"
         movie={
           Object {
@@ -34,13 +34,14 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
           }
         }
         onMovieClick={[MockFunction]}
+        viewType="card"
       />
     </ErrorBoundary>
     <ErrorBoundary
       errorMessage="Unfortunately, we can't show The Killing of a Sacred Deer preview"
       key="movie-card-wrapper-399057"
     >
-      <MovieCard
+      <MovieDetails
         key="399057"
         movie={
           Object {
@@ -63,13 +64,14 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
           }
         }
         onMovieClick={[MockFunction]}
+        viewType="card"
       />
     </ErrorBoundary>
     <ErrorBoundary
       errorMessage="Unfortunately, we can't show Kill Switch preview"
       key="movie-card-wrapper-423988"
     >
-      <MovieCard
+      <MovieDetails
         key="423988"
         movie={
           Object {
@@ -90,13 +92,14 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
           }
         }
         onMovieClick={[MockFunction]}
+        viewType="card"
       />
     </ErrorBoundary>
     <ErrorBoundary
       errorMessage="Unfortunately, we can't show Batman: The Killing Joke preview"
       key="movie-card-wrapper-382322"
     >
-      <MovieCard
+      <MovieDetails
         key="382322"
         movie={
           Object {
@@ -120,13 +123,14 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
           }
         }
         onMovieClick={[MockFunction]}
+        viewType="card"
       />
     </ErrorBoundary>
     <ErrorBoundary
       errorMessage="Unfortunately, we can't show Kill Me Three Times preview"
       key="movie-card-wrapper-237756"
     >
-      <MovieCard
+      <MovieDetails
         key="237756"
         movie={
           Object {
@@ -148,6 +152,7 @@ exports[`Movies List Component Snapshot should renders correctly 1`] = `
           }
         }
         onMovieClick={[MockFunction]}
+        viewType="card"
       />
     </ErrorBoundary>
   </ul>

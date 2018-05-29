@@ -1,39 +1,72 @@
 import { DateTime } from 'luxon';
 import * as React from 'react';
-import { IMovieObject } from './../movie-card/movie-card.component';
+
+export interface IMovieObject {
+  budget: number;
+  genres: string[];
+  id: number;
+  overview: string;
+  poster_path: string;
+  release_date: string;
+  revenue: number;
+  runtime: number;
+  tagline: string;
+  title: string;
+  vote_average: number;
+  vote_count: number;
+}
 
 interface IMovieDetailsProps {
-  selectedMovie: IMovieObject;
+  movie: IMovieObject;
+  viewType: 'card' | 'full';
+  onMovieClick(movieId: number): void;
 }
 
 export class MovieDetails extends React.Component<IMovieDetailsProps, {}> {
   constructor(props: IMovieDetailsProps) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   public render() {
-    return <div className='c-movie-details'>
-      <img className='c-movie-details__poster' src={this.props.selectedMovie.poster_path} />
-      <div className='c-movie-details__info'>
-        <h4 className='c-movie-details__header'>
-          <span className='c-movie-details__title'>{this.props.selectedMovie.title}</span>
-          <span className='c-movie-details__rating'>{this.props.selectedMovie.vote_average}</span>
-        </h4>
-        <p className='c-movie-details__tagline'>
-          {this.props.selectedMovie.tagline}
-        </p>
-        <p>
-          <span className='c-movie-details__year'>
-            {DateTime.fromISO(this.props.selectedMovie.release_date).year}
+    return <div className={`c-movie-details-${this.props.viewType}`} onClick={this.handleClick}>
+      <img
+          className={`c-movie-details-${this.props.viewType}__poster`}
+          src={this.props.movie.poster_path}
+      />
+      <div className={`c-movie-details-${this.props.viewType}__data`}>
+        <div className={`c-movie-details-${this.props.viewType}__title`}>
+          <h4 className={`c-movie-details-${this.props.viewType}__name`}>{this.props.movie.title}</h4>
+          <span className={`c-movie-details-${this.props.viewType}__rating`}>{this.props.movie.vote_average}</span>
+          <span className={`c-movie-details-${this.props.viewType}__year`}>
+            {DateTime.fromISO(this.props.movie.release_date).year}
           </span>
-          <span className='c-movie-details__duration'>
-            {this.props.selectedMovie.runtime} min
-          </span>
-        </p>
-        <div className='c-movie-details__description'>
-          {this.props.selectedMovie.overview}
+        </div>
+        <div className={`c-movie-details-${this.props.viewType}__info`}>
+          <p className={`c-movie-details-${this.props.viewType}__tagline`}>
+            {this.props.movie.tagline}
+          </p>
+          <p>
+            <span className={`c-movie-details-${this.props.viewType}__year`}>
+              {DateTime.fromISO(this.props.movie.release_date).year}
+            </span>
+            <span className={`c-movie-details-${this.props.viewType}__duration`}>
+              {this.props.movie.runtime} min
+            </span>
+          </p>
+          <div className={`c-movie-details-${this.props.viewType}__description`}>
+            {this.props.movie.overview}
+          </div>
+        </div>
+        <div className={`c-movie-details-${this.props.viewType}__genres`}>
+          {this.props.movie.genres.join(', ')}
         </div>
       </div>
     </div>;
+  }
+
+  public handleClick() {
+    this.props.onMovieClick(this.props.movie.id);
   }
 }

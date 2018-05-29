@@ -1,4 +1,48 @@
-.c-movie-details {
+.c-movie-details-card {
+  height: 350px;
+  margin: 10px 20px;
+  width: 200px;
+  
+  &__poster {
+    height: auto;
+    max-height: 300px;
+    max-width: 100%;
+  }
+  &__title {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  &__name {
+    color: $primary-dark;
+    font-family: $main-font;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__rating {
+    display: none;
+  }
+  &__year {
+    border: 1px solid $dark-grey;
+    border-radius: 2px;
+    color: $primary-dark;
+    font-family: $main-font;
+    font-size: 0.75rem;
+    padding: 0 2px;
+  }
+  &__info {
+    display: none;
+  }
+  &__genres {
+    color: $primary-dark;
+    font-family: $main-font;
+    font-size: 0.65rem;
+  }
+}
+
+.c-movie-details-full {
   display: flex;
   flex-direction: row;
   margin: 30px 0;
@@ -9,13 +53,17 @@
     max-height: 250px;
     width: auto;
   }
-  &__info {
+  &__data {
     flex: 1 1 auto;
   }
-  &__header {
-    display: flex;
-  }
   &__title {
+    display: flex;
+
+    .c-movie-details-full__year {
+      display: none;
+    }
+  }
+  &__name {
     color: $light-red;
     font-family: $tilte-font;
     font-size: 1.2rem;
@@ -55,5 +103,8 @@
     font-family: $main-font;
     font-size: 0.9rem;
     margin-top: 20px;
+  }
+  &__genres {
+    display: none;
   }
 }

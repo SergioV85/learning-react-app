@@ -61,10 +61,6 @@ describe('Search Panel component', () => {
     )
     .toMatch(/Find your movie/);
   });
-  it('should emit output event on type change', () => {
-    searchPanelComponent.find('.c-search-panel__search-type-button--genre').find('input').simulate('change');
-    expect(mockOnChangeTypeFn).toBeCalled();
-  });
   it('should emit output event on input change', () => {
     searchPanelComponent.find('.c-search-panel__input').simulate('change', { currentTarget: { value: 'abcd' } });
     expect(mockOnInputChangeFn).toBeCalledWith({ currentTarget: { value: 'abcd' } });

@@ -47,13 +47,10 @@ exports[`Movies Page Snapshot should render default page 1`] = `
     className="c-page__movies"
   >
     <ErrorBoundary
-      errorMessage="Unfortunately, we cant show movies list"
-      key="movies-list-wrapper"
+      errorMessage="Unfortunately, we cant show message"
+      key="movies-empty-message-wrapper"
     >
-      <MoviesList
-        movies={Array []}
-        onMovieClick={[MockFunction]}
-      />
+      <Component />
     </ErrorBoundary>
   </div>
   <div

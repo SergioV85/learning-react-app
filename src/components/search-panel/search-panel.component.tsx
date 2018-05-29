@@ -54,8 +54,4 @@ export class SearchPanel extends React.Component<ISearchPanelProps, {}> {
       </div>
     </div>;
   }
-
-  public getActiveButton(type: string): string {
-    return this.props.searchType === type ? 'active' : '';
-  }
 }

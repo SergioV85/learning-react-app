@@ -3,8 +3,8 @@ import * as React from 'react';
 
 import { Footer } from './footer/footer.component';
 import { Header } from './header/header.component';
-import { MovieCard } from './movie-card/movie-card.component';
 import { MovieDetails } from './movie-details/movie-details.component';
+import { MoviesEmptyList } from './movies-empty-list/movies-empty-list.component';
 import { MoviesList } from './movies-list/movies-list.component';
 import { MoviesPage } from './movies-page';
 import { SearchPanel } from './search-panel/search-panel.component';
@@ -70,7 +70,7 @@ describe('MoviesPage component', () => {
     });
     it('should render empty movies list', () => {
       expect(defaultMoviesPage
-        .find(MoviesList)
+        .find(MoviesEmptyList)
         .dive()
         .find('.c-movies-list__no-found-title'),
       )
@@ -123,7 +123,7 @@ describe('MoviesPage component', () => {
       expect(moviePageWithList
           .find(MoviesList)
           .dive()
-          .find(MovieCard),
+          .find(MovieDetails),
         )
         .toHaveLength(5);
     });

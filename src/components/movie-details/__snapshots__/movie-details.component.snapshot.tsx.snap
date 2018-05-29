@@ -2,49 +2,64 @@
 
 exports[`Movie Details Component Snapshot should renders correctly 1`] = `
 <div
-  className="c-movie-details"
+  className="c-movie-details-card"
+  onClick={[Function]}
 >
   <img
-    className="c-movie-details__poster"
+    className="c-movie-details-card__poster"
     src="https://image.tmdb.org/t/p/w500/cvit6HDbXHE6W5kGPd47jd0wthQ.jpg"
   />
   <div
-    className="c-movie-details__info"
+    className="c-movie-details-card__data"
   >
-    <h4
-      className="c-movie-details__header"
+    <div
+      className="c-movie-details-card__title"
     >
-      <span
-        className="c-movie-details__title"
+      <h4
+        className="c-movie-details-card__name"
       >
         I Kill Giants
-      </span>
+      </h4>
       <span
-        className="c-movie-details__rating"
+        className="c-movie-details-card__rating"
       >
         6
       </span>
-    </h4>
-    <p
-      className="c-movie-details__tagline"
-    />
-    <p>
       <span
-        className="c-movie-details__year"
+        className="c-movie-details-card__year"
       >
         2018
       </span>
-      <span
-        className="c-movie-details__duration"
-      >
-        106
-         min
-      </span>
-    </p>
+    </div>
     <div
-      className="c-movie-details__description"
+      className="c-movie-details-card__info"
     >
-      Barbara Thorson struggles through life by escaping into a fantasy life of magic and monsters.
+      <p
+        className="c-movie-details-card__tagline"
+      />
+      <p>
+        <span
+          className="c-movie-details-card__year"
+        >
+          2018
+        </span>
+        <span
+          className="c-movie-details-card__duration"
+        >
+          106
+           min
+        </span>
+      </p>
+      <div
+        className="c-movie-details-card__description"
+      >
+        Barbara Thorson struggles through life by escaping into a fantasy life of magic and monsters.
+      </div>
+    </div>
+    <div
+      className="c-movie-details-card__genres"
+    >
+      Thriller, Drama, Fantasy
     </div>
   </div>
 </div>
