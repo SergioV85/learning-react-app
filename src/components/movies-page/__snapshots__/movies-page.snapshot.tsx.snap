@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies Page Snapshot should render default page 1`] = `
+<div
+  className="c-page__movies"
+>
+  <ErrorBoundary
+    errorMessage="Unfortunately, we cant show message"
+    key="movies-empty-message-wrapper"
+  >
+    <Component />
+  </ErrorBoundary>
+</div>
+`;

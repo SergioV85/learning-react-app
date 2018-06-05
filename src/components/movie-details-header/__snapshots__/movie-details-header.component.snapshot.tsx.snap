@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Details Header Snapshot should render the header 1`] = `
+<div
+  className="c-page__header"
+>
+  <div
+    className="c-page__header-shadow"
+  >
+    <div
+      className="p-2 container"
+    >
+      <Component
+        onBackToList={[MockFunction]}
+        showBackButton={true}
+      />
+      <ErrorBoundary
+        errorMessage="Unfortunately, error happens during showing details of selected movie"
+        key="movie-details-wrapper"
+      >
+        <MovieDetails
+          movie={
+            Object {
+              "budget": 0,
+              "genres": Array [
+                "Thriller",
+                "Drama",
+                "Fantasy",
+              ],
+              "id": 419831,
+              "overview": "Barbara Thorson struggles through life by escaping into a fantasy life of magic and monsters.",
+              "poster_path": "https://image.tmdb.org/t/p/w500/cvit6HDbXHE6W5kGPd47jd0wthQ.jpg",
+              "release_date": "2018-01-21",
+              "revenue": 0,
+              "runtime": 106,
+              "tagline": "",
+              "title": "I Kill Giants",
+              "vote_average": 6,
+              "vote_count": 63,
+            }
+          }
+          onMovieClick={[Function]}
+          viewType="full"
+        />
+      </ErrorBoundary>
+    </div>
+  </div>
+</div>
+`;

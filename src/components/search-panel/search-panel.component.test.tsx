@@ -6,14 +6,17 @@ describe('Search Panel component', () => {
   const mockOnChangeTypeFn = jest.fn();
   const mockOnInputChangeFn = jest.fn();
   const mockOnSearchMoviesFn = jest.fn();
+  const mockDoSearchOnInitFn = jest.fn();
 
   const searchPanelComponent = shallow(
     <SearchPanel
-        searchType='title'
+        searchBy='title'
+        searchQuery=''
         search=''
         onChangeType={mockOnChangeTypeFn}
         onInputChange={mockOnInputChangeFn}
         onSearchMovies={mockOnSearchMoviesFn}
+        doSearchOnInit={mockDoSearchOnInitFn}
     />,
   );
 
@@ -25,10 +28,10 @@ describe('Search Panel component', () => {
     .toMatch(/Find your movie/);
   });
 
-  it('should be selectable by class "c-search-panel"', () => {
+  it('should be selectable by class "c-page__header"', () => {
     expect(
       searchPanelComponent
-        .is('.c-search-panel'),
+        .is('.c-page__header'),
       )
       .toBe(true);
   });
@@ -36,11 +39,13 @@ describe('Search Panel component', () => {
     expect(
       mount(
       <SearchPanel
-          searchType='title'
+          searchBy='title'
+          searchQuery=''
           search=''
           onChangeType={mockOnChangeTypeFn}
           onInputChange={mockOnInputChangeFn}
           onSearchMovies={mockOnSearchMoviesFn}
+          doSearchOnInit={mockDoSearchOnInitFn}
       />,
       ).find('.c-search-panel').length,
       )
@@ -50,11 +55,13 @@ describe('Search Panel component', () => {
   it('should render search panel', () => {
     expect(
       render(<SearchPanel
-        searchType='title'
+        searchBy='title'
+        searchQuery=''
         search=''
         onChangeType={mockOnChangeTypeFn}
         onInputChange={mockOnInputChangeFn}
         onSearchMovies={mockOnSearchMoviesFn}
+        doSearchOnInit={mockDoSearchOnInitFn}
       />,
       )
       .text(),

@@ -20,7 +20,7 @@ describe('Movie List actions', () => {
   describe('Search Movies', () => {
     let store: any;
     beforeEach(() => {
-      store = mockStore();
+      store = mockStore({ searchParams: {} });
     });
     it('should dispatch request with search parameters and save movies list to store', async () => {
       moxios.wait(() => {
@@ -33,10 +33,10 @@ describe('Movie List actions', () => {
       await store.dispatch(MoviesListActions.searchMovies());
       const actions = store.getActions();
       expect(actions[0]).toEqual({
-        payload: undefined,
+        payload: {},
         type: MoviesListActionTypes.GetMovies,
       });
-      expect(actions[1]).toEqual({
+      expect(actions[2]).toEqual({
         payload: mockedMoviesList,
         type: MoviesListActionTypes.GetMoviesComplete,
       });
@@ -52,10 +52,10 @@ describe('Movie List actions', () => {
       await store.dispatch(MoviesListActions.searchMovies());
       const actions = store.getActions();
       expect(actions[0]).toEqual({
-        payload: undefined,
+        payload: {},
         type: MoviesListActionTypes.GetMovies,
       });
-      expect(actions[1]).toMatchObject({
+      expect(actions[2]).toMatchObject({
         type: MoviesListActionTypes.GetMoviesError,
       });
     });

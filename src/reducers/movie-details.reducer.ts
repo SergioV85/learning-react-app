@@ -1,5 +1,6 @@
 import { merge } from 'ramda';
 import MovieDetailsActionTypes from './../action-types/movie-details.action-types';
+import MoviesListActionTypes from './../action-types/movies-list.action-types';
 import { IMovieObject } from './../components/movie-details/movie-details.component';
 
 export interface IMovieDetailsStore {
@@ -14,11 +15,13 @@ const defaultState = {
 
 export const movieDetailsReducer = (state: IMovieDetailsStore = defaultState, action: any) => {
   switch (action.type) {
+    case MoviesListActionTypes.NavigateToMovie:
+      const movieId = action.payload;
+      return merge(state, { movieDetails: null, selectedMovieId: movieId });
     case MovieDetailsActionTypes.BackToList:
       return merge(state, { movieDetails: null, selectedMovieId: null });
     case MovieDetailsActionTypes.GetMovie:
-      const selectedMovieId = action.payload;
-      return merge(state, { isLoading: true, selectedMovieId }) as IMovieDetailsStore;
+      return merge(state, { isLoading: true }) as IMovieDetailsStore;
     case MovieDetailsActionTypes.GetMovieComplete:
       const movieDetails = action.payload;
       return merge(state, { isLoading: false, movieDetails }) as IMovieDetailsStore;

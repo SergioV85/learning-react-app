@@ -23,10 +23,24 @@ describe('Status Bar Panel component', () => {
     .toMatch(/2 movies found/);
   });
 
-  it('should be selectable by class "c-status-bar"', () => {
+  it('should render empty panel for no results', () => {
+    const emptyStatusBarPanel = shallow(
+      <StatusBarPanel
+        foundMovies={0}
+        currentSortingOrder='asc'
+        currentSortingType='release_date'
+        onChangeSortingOrder={mockOnChangeSortingOrderFn}
+        onChangeSortingType={mockOnChangeSortingTypeFn}
+      />);
+    expect(emptyStatusBarPanel
+        .is('.c-page__status-bar'),
+    )
+    .toBe(false);
+  });
+  it('should be selectable by class "c-page__status-bar"', () => {
     expect(
       statusBarPanel
-        .is('.c-status-bar'),
+        .is('.c-page__status-bar'),
       )
       .toBe(true);
   });

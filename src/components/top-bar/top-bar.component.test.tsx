@@ -1,64 +1,64 @@
 import { mount, render, shallow } from 'enzyme';
 import * as React from 'react';
 
-import { Header } from './header.component';
+import { Topbar } from './top-bar.component';
 
-describe('Header component', () => {
+describe('Topbar component', () => {
   const mockBackToListFn = jest.fn();
-  const simpleHeader = shallow(<Header onBackToList={mockBackToListFn} />);
-  const headerForDetailsPage = shallow(<Header showBackButton={true} onBackToList={mockBackToListFn} />);
+  const simpleTopbar = shallow(<Topbar onBackToList={mockBackToListFn} />);
+  const topbarForDetailsPage = shallow(<Topbar showBackButton={true} onBackToList={mockBackToListFn} />);
 
   it('should render simple logo without throwing an error', () => {
     expect(
-      simpleHeader
+      simpleTopbar
         .contains(
-          <div className='c-header'>
-            <span className='c-header__logo'>netflixroulette</span>
+          <div className='c-topbar'>
+            <span className='c-topbar__logo'>netflixroulette</span>
           </div>,
         ),
       )
       .toBe(true);
   });
   it('should show "Back to list" button on Movie details page', () => {
-    expect(headerForDetailsPage
-      .find('.c-header__back-button')
+    expect(topbarForDetailsPage
+      .find('.c-topbar__back-button')
       .length,
     )
     .toEqual(1);
   });
 
-  it('should be selectable by class "c-header"', () => {
+  it('should be selectable by class "c-topbar"', () => {
     expect(
-      simpleHeader
-        .is('.c-header'),
+      simpleTopbar
+        .is('.c-topbar'),
       )
       .toBe(true);
   });
   it('should mount in a full DOM', () => {
     expect(
-      mount(<Header onBackToList={mockBackToListFn} />)
-        .find('.c-header').length,
+      mount(<Topbar onBackToList={mockBackToListFn} />)
+        .find('.c-topbar').length,
       )
       .toBe(1);
   });
 
   it('should render only logo for default view', () => {
     expect(
-      render(<Header onBackToList={mockBackToListFn} />)
+      render(<Topbar onBackToList={mockBackToListFn} />)
       .text(),
     )
     .toEqual('netflixroulette');
   });
   it('should render logo and button for movie details page', () => {
     expect(
-      render(<Header showBackButton={true} onBackToList={mockBackToListFn} />)
+      render(<Topbar showBackButton={true} onBackToList={mockBackToListFn} />)
       .text(),
     )
     .toEqual('netflixroulette Search ');
   });
 
   it('should emit output event on click "Back to list button', () => {
-    headerForDetailsPage.find('button').simulate('click');
+    topbarForDetailsPage.find('button').simulate('click');
     expect(mockBackToListFn).toBeCalled();
   });
 });

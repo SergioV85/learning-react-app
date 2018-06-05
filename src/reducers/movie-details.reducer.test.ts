@@ -1,4 +1,5 @@
 import MovieDetailsActionTypes from './../action-types/movie-details.action-types';
+import MoviesListActionTypes from './../action-types/movies-list.action-types';
 import { movieDetailsReducer } from './movie-details.reducer';
 
 const mockedState = {
@@ -21,11 +22,10 @@ describe('Movie Details Reducer', () => {
   });
   it('should handle MovieDetailsActions.GetMovie', () => {
     const action = {
-      payload: 123,
       type: MovieDetailsActionTypes.GetMovie,
     };
     const currentState = movieDetailsReducer(mockedState, action);
-    const newState = { isLoading: true, selectedMovieId: 123 };
+    const newState = { isLoading: true };
     expect(currentState).toEqual(newState);
   });
   it('should handle MovieDetailsActions.GetMovieComplete', () => {
@@ -46,6 +46,15 @@ describe('Movie Details Reducer', () => {
     };
     const currentState = movieDetailsReducer(mockedState, action);
     const newState = { isLoading: false, error: { message: 'Error' } };
+    expect(currentState).toEqual(newState);
+  });
+  it('should handle MovieDetailsActions.NavigateToMovie', () => {
+    const action = {
+      payload: 123,
+      type: MoviesListActionTypes.NavigateToMovie,
+    };
+    const currentState = movieDetailsReducer(mockedState, action);
+    const newState = { isLoading: false, movieDetails: null, selectedMovieId: 123 };
     expect(currentState).toEqual(newState);
   });
 });
