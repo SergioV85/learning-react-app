@@ -37,28 +37,30 @@ export class StatusBarPanel extends React.Component<IStatusBarProps, {}> {
 
   public render() {
     if (this.props.foundMovies > 0) {
-      return <div className='c-status-bar p-2 container'>
-        <span className='c-status-bar__movies-quantity'>{this.props.foundMovies} movies found</span>
-        <ToggleSwitcher
-            cssClass='c-status-bar__sorting-type'
-            title='Sort by'
-            buttonViewClass='btn-link'
-            buttons={this.sortingTypeButtons}
-            currentValue={this.props.currentSortingType}
-            name='sort-type'
-            type='radio'
-            onToggleChange={this.props.onChangeSortingType}
-        />
-        <ToggleSwitcher
-            cssClass='c-status-bar__sorting-order'
-            title='Sort order'
-            buttonViewClass=''
-            buttons={this.sortingOrderButtons}
-            currentValue={this.props.currentSortingOrder}
-            name='sort-order'
-            type='radio'
-            onToggleChange={this.props.onChangeSortingOrder}
-        />
+      return <div className='c-page__status-bar'>
+        <div className='c-status-bar p-2 container'>
+          <span className='c-status-bar__movies-quantity'>{this.props.foundMovies} movies found</span>
+          <ToggleSwitcher
+              cssClass='c-status-bar__sorting-type'
+              title='Sort by'
+              buttonViewClass='btn-link'
+              buttons={this.sortingTypeButtons}
+              currentValue={this.props.currentSortingType}
+              name='sort-type'
+              type='radio'
+              onToggleChange={this.props.onChangeSortingType}
+          />
+          <ToggleSwitcher
+              cssClass='c-status-bar__sorting-order'
+              title='Sort order'
+              buttonViewClass=''
+              buttons={this.sortingOrderButtons}
+              currentValue={this.props.currentSortingOrder}
+              name='sort-order'
+              type='radio'
+              onToggleChange={this.props.onChangeSortingOrder}
+          />
+        </div>
       </div>;
     }
     return null;

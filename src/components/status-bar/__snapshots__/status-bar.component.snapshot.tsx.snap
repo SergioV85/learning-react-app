@@ -2,55 +2,59 @@
 
 exports[`Status Bar Panel Component Snapshot should renders correctly 1`] = `
 <div
-  className="c-status-bar p-2 container"
+  className="c-page__status-bar"
 >
-  <span
-    className="c-status-bar__movies-quantity"
+  <div
+    className="c-status-bar p-2 container"
   >
-    2
-     movies found
-  </span>
-  <ToggleSwitcher
-    buttonViewClass="btn-link"
-    buttons={
-      Array [
-        Object {
-          "label": "Release date",
-          "value": "release_date",
-        },
-        Object {
-          "label": "Rating",
-          "value": "rating",
-        },
-      ]
-    }
-    cssClass="c-status-bar__sorting-type"
-    currentValue="rating"
-    name="sort-type"
-    onToggleChange={[MockFunction]}
-    title="Sort by"
-    type="radio"
-  />
-  <ToggleSwitcher
-    buttonViewClass=""
-    buttons={
-      Array [
-        Object {
-          "icon": "icon-arrow-up",
-          "value": "asc",
-        },
-        Object {
-          "icon": "icon-arrow-down",
-          "value": "desc",
-        },
-      ]
-    }
-    cssClass="c-status-bar__sorting-order"
-    currentValue="asc"
-    name="sort-order"
-    onToggleChange={[MockFunction]}
-    title="Sort order"
-    type="radio"
-  />
+    <span
+      className="c-status-bar__movies-quantity"
+    >
+      2
+       movies found
+    </span>
+    <ToggleSwitcher
+      buttonViewClass="btn-link"
+      buttons={
+        Array [
+          Object {
+            "label": "Release date",
+            "value": "release_date",
+          },
+          Object {
+            "label": "Rating",
+            "value": "rating",
+          },
+        ]
+      }
+      cssClass="c-status-bar__sorting-type"
+      currentValue="rating"
+      name="sort-type"
+      onToggleChange={[MockFunction]}
+      title="Sort by"
+      type="radio"
+    />
+    <ToggleSwitcher
+      buttonViewClass=""
+      buttons={
+        Array [
+          Object {
+            "icon": "icon-arrow-up",
+            "value": "asc",
+          },
+          Object {
+            "icon": "icon-arrow-down",
+            "value": "desc",
+          },
+        ]
+      }
+      cssClass="c-status-bar__sorting-order"
+      currentValue="asc"
+      name="sort-order"
+      onToggleChange={[MockFunction]}
+      title="Sort order"
+      type="radio"
+    />
+  </div>
 </div>
 `;

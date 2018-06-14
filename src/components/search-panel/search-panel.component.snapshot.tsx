@@ -8,11 +8,13 @@ describe('Search Panel Component Snapshot', () => {
   it('should renders correctly', () => {
     const searchPanelSnapshot = shallow(
       <SearchPanel
-        searchType='tilte'
+        searchBy='title'
+        searchQuery=''
         search=''
         onChangeType={mockedFn}
         onInputChange={mockedFn}
         onSearchMovies={mockedFn}
+        doSearchOnInit={mockedFn}
       />,
     );
     expect(searchPanelSnapshot)

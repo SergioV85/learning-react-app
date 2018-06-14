@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header Component Snapshot should renders correctly 1`] = `
+exports[`Topbar Component Snapshot should renders correctly 1`] = `
 <div
-  className="c-header"
+  className="c-topbar"
 >
   <span
-    className="c-header__logo"
+    className="c-topbar__logo"
   >
     netflixroulette
   </span>
   <button
-    className="btn c-header__back-button"
+    className="btn c-topbar__back-button"
     onClick={[MockFunction]}
   >
      Search 

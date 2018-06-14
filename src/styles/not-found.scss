@@ -1,0 +1,15 @@
+.c-not-found {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    margin: 1em 0;
+  }
+
+  &__back-link {
+    font-size: 1.5em;
+  }
+}

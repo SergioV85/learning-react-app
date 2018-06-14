@@ -11,10 +11,10 @@ describe('Footer component', () => {
         .toBe(true);
   });
 
-  it('should be selectable by class "c-footer"', () => {
+  it('should be selectable by class "c-page__footer"', () => {
     expect(
       shallow(<Footer />)
-        .is('.c-footer'))
+        .is('.c-page__footer'))
         .toBe(true);
   });
 

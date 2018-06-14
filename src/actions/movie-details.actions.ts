@@ -1,9 +1,15 @@
+import { push } from 'connected-react-router';
 import MovieDetailsActionTypes from './../action-types/movie-details.action-types';
 import { getMovieDetails } from './../services/movies.service';
 
-const backToListAction = () => ({
-  type: MovieDetailsActionTypes.BackToList,
-});
+const backToListAction = () => {
+  return (dispatch: any) => {
+    dispatch({
+      type: MovieDetailsActionTypes.BackToList,
+    });
+    dispatch(push(`/search`));
+  };
+};
 const getMovie = (selectedMovieId: number) => {
   return (dispatch: any) => {
     dispatch({

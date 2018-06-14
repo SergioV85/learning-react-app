@@ -2,12 +2,20 @@
 
 exports[`Footer Component Snapshot should renders correctly 1`] = `
 <div
-  className="c-footer"
+  className="c-page__footer"
 >
-  <span
-    className="c-footer__logo"
+  <div
+    className="p-2 container"
   >
-    netflixroulette
-  </span>
+    <div
+      className="c-footer"
+    >
+      <span
+        className="c-footer__logo"
+      >
+        netflixroulette
+      </span>
+    </div>
+  </div>
 </div>
 `;

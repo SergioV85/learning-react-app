@@ -18,16 +18,20 @@ describe('Movie details actions', () => {
   });
 
   describe('backToListAction', () => {
+    let store: any;
+    beforeEach(() => {
+      store = mockStore();
+    });
     afterEach(() => {
       dispatch.mockClear();
     });
-    it('should set selected movie to null', () => {
+    it('should set selected movie to null', async () => {
       const mockedBackToList = {
         type: MovieDetailsActionTypes.BackToList,
       };
-
-      dispatch(MovieDetailsActions.backToListAction());
-      expect(dispatch).toBeCalledWith(mockedBackToList);
+      await store.dispatch(MovieDetailsActions.backToListAction());
+      const actions = store.getActions();
+      expect(actions[0]).toEqual(mockedBackToList);
     });
   });
   describe('getMovie', () => {
