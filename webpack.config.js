@@ -2,23 +2,23 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CheckerPlugin } = require('awesome-typescript-loader')
+const { CheckerPlugin } = require('awesome-typescript-loader');
+const nodeExternals = require('webpack-node-externals');
 
 const BUILD_DIR = path.resolve(__dirname, './dist');
-const APP_DIR = path.resolve(__dirname, './src');
+const APP_DIR = path.resolve(__dirname, './');
 const port = process.env.PORT || 3000;
-
-module.exports = (env) => {
+const createConfig = (env) => {
   const isProdMode = env.production;
+
   return {
-    mode: isProdMode ? 'production' : 'development',
     devtool: isProdMode ? 'none' : 'source-map',
-    entry: {
-      main: `${APP_DIR}/app.tsx`,
-    },
-    output: {
-      filename: isProdMode ? 'build.[hash].js' : 'build.js',
-      path: BUILD_DIR,
+    mode: isProdMode ? 'production' : 'development',
+    resolve: {
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      alias: {
+        'assets': path.resolve(__dirname, './src/assets'),
+      },
     },
     module: {
       rules: [
@@ -28,15 +28,6 @@ module.exports = (env) => {
           use: [
             isProdMode ? MiniCssExtractPlugin.loader : 'style-loader',
             'css-loader?url=false',
-          ],
-        },
-        // SCSS Loader
-        {
-          test: /(\.scss)$/,
-          use: [
-            isProdMode ? MiniCssExtractPlugin.loader : 'style-loader',
-            'css-loader',
-            'sass-loader',
           ],
         },
         // Image Loader
@@ -66,24 +57,14 @@ module.exports = (env) => {
         },
       ],
     },
-    plugins: [ 
+    plugins: [
+      new CheckerPlugin(),
       new MiniCssExtractPlugin({
         filename: isProdMode ? '[name].[hash].css' : '[name].css',
         chunkFilename: isProdMode ? '[id].[hash].js' : '[id].css',
       }),
-      new HtmlWebpackPlugin({
-        title: "React Learning App - second task",
-        hash: true,
-        template: `src/index.html`,
-      }),
-      new CheckerPlugin(),
+      new webpack.NamedModulesPlugin(),
     ],
-    resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      alias: {
-        'assets': path.resolve(__dirname, './src/assets'),
-      },
-    },
     devServer: {
       host: 'localhost',
       port: port,
@@ -92,4 +73,86 @@ module.exports = (env) => {
       contentBase: './dist',
     },
   };
-};
+}
+class ServerMiniCssExtractPlugin extends MiniCssExtractPlugin {
+  getCssChunkObject(mainChunk) {
+    return {};
+  }
+}
+
+module.exports = (env) => {
+  const isProdMode = env.production;
+  const isServer = env.platform === 'server';
+  const baseConfig = createConfig(env);
+  if (isServer) {
+    // Server SCSS Loader
+    baseConfig.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        ServerMiniCssExtractPlugin.loader,
+        'css-loader',
+        'sass-loader',
+      ]
+    })
+
+    return {
+      ...baseConfig,
+      target: 'node',
+      entry: `${APP_DIR}/server/index.ts`,
+      output: {
+        // chunkFilename: "[name].js",
+        // filename: isProdMode ? '[name].[hash].js' : '[name].js',
+        filename: isProdMode ? 'server.[hash].js' : 'server.js',
+        path: BUILD_DIR,
+        publicPath: '/',
+      },
+      externals: [
+        nodeExternals()
+      ],
+    }
+  }
+  // Client SCSS Loader
+  baseConfig.module.rules.push({
+    test: /(\.scss)$/,
+    use: [
+      isProdMode ? MiniCssExtractPlugin.loader : 'style-loader',
+      'css-loader',
+      'sass-loader',
+    ],
+  });
+  const clientPlugins = [
+    new HtmlWebpackPlugin({
+      title: "React Learning App",
+      hash: true,
+      template: `src/index.html`,
+    })
+  ];
+  baseConfig.plugins = [
+    ...baseConfig.plugins,
+    ...clientPlugins
+  ];
+
+  return {
+    ...baseConfig,
+    target: 'web',
+    entry: `${APP_DIR}/src/index.tsx`,
+    output: {
+      filename: isProdMode ? '[name].client.[hash].js' : '[name].client.js',
+      path: BUILD_DIR,
+      publicPath: '/',
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            priority: -20,
+            chunks: "all"
+          }
+        }
+      }
+    },
+  }
+}
+

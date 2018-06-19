@@ -10,7 +10,7 @@ const searchMovies = () => {
       type: MoviesListActionTypes.GetMovies,
     });
 
-    dispatch(push(`/search?${searchParams.search}`));
+    dispatch(push(`/search/${searchParams.search}`));
 
     return getMoviesList(searchParams)
       .then((list) => dispatch({

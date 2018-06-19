@@ -58,6 +58,7 @@ typings/
 .env
 
 # dist folder
+.next
 dist
 
 # package-lock

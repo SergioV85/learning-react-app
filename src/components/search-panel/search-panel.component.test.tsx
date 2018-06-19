@@ -10,6 +10,7 @@ describe('Search Panel component', () => {
 
   const searchPanelComponent = shallow(
     <SearchPanel
+        movies={[]}
         searchBy='title'
         searchQuery=''
         search=''
@@ -39,6 +40,7 @@ describe('Search Panel component', () => {
     expect(
       mount(
       <SearchPanel
+          movies={[]}
           searchBy='title'
           searchQuery=''
           search=''
@@ -55,6 +57,7 @@ describe('Search Panel component', () => {
   it('should render search panel', () => {
     expect(
       render(<SearchPanel
+        movies={[]}
         searchBy='title'
         searchQuery=''
         search=''

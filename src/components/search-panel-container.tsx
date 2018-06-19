@@ -1,19 +1,17 @@
-import { drop, pathOr, pipe } from 'ramda';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { MoviesListActions } from './../actions/movies-list.actions';
 import { MoviesSearchPanelActions } from './../actions/movies-search-panel.actions';
-import { IMoviesPageStore } from './../reducers/root.reducer';
+import { getMoviesList } from './../reducers/movies-list.reducer';
+import { getSearchBy, getSearchKeyword } from './../reducers/movies-search-panel.reducer';
+import { getSearchQuery, IMoviesPageStore } from './../reducers/root.reducer';
 import { SearchPanel } from './search-panel/search-panel.component';
 
 const mapStateToProps = (state: IMoviesPageStore) => ({
-  search: pathOr('', ['searchParams', 'search'], state),
-  searchBy: pathOr('', ['searchParams', 'searchBy'], state),
-  searchQuery: pipe(
-    pathOr('', ['router', 'location', 'search']),
-    drop(1) as any,
-    decodeURI,
-  )(state),
+  movies: getMoviesList(state),
+  search: getSearchKeyword(state),
+  searchBy: getSearchBy(state),
+  searchQuery: getSearchQuery(state),
 });
 ​
 const mapDispatchToProps = (dispatch: any) => ({

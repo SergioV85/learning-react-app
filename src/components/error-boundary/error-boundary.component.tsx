@@ -13,7 +13,9 @@ export class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBo
     this.state = { hasError: false };
   }
 
-  public componentDidCatch() {
+  public componentDidCatch(err: any) {
+    // tslint:disable-next-line:no-console
+    console.log('ErrorBoundary -> componentDidCatch', err);
     this.setState({ hasError: true });
   }
 
