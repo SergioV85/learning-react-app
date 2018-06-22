@@ -1,17 +1,19 @@
-import { length, pathOr, pipe } from 'ramda';
+import { length, pipe } from 'ramda';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { MoviesListActions } from './../actions/movies-list.actions';
 import { MoviesSearchPanelActions } from './../actions/movies-search-panel.actions';
+import { getMoviesList } from './../reducers/movies-list.reducer';
+import { getSortBy, getSortOrder } from './../reducers/movies-search-panel.reducer';
 import { IMoviesPageStore } from './../reducers/root.reducer';
 import { StatusBarPanel } from './status-bar/status-bar.component';
 
 const mapStateToProps = (state: IMoviesPageStore) => ({
-  currentSortingOrder: pathOr('', ['searchParams', 'sortOrder'], state),
-  currentSortingType: pathOr('', ['searchParams', 'sortBy'], state),
+  currentSortingOrder: getSortOrder(state),
+  currentSortingType: getSortBy(state),
   foundMovies: pipe(
-    pathOr([], ['moviesList', 'movies']),
-    length,
+    getMoviesList,
+    length as any,
   )(state),
 });
 ​

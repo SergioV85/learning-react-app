@@ -1,5 +1,7 @@
-import { merge } from 'ramda';
+import { merge, propOr } from 'ramda';
+import { createSelector } from 'reselect';
 import MoviesSearchPanelActionTypes from './../action-types/movies-search-panel.action-types';
+import { IMoviesPageStore } from './root.reducer';
 
 export interface IMoviesSearchPanelStore {
   search?: string;
@@ -35,3 +37,21 @@ export const moviesSearchPanelReducer = (
       return state;
   }
 };
+
+const searchParamsSelector = (state: IMoviesPageStore) => state.searchParams;
+export const getSearchKeyword = createSelector(
+  searchParamsSelector,
+  propOr('', 'search'),
+);
+export const getSearchBy = createSelector(
+  searchParamsSelector,
+  propOr('', 'searchBy'),
+);
+export const getSortBy = createSelector(
+  searchParamsSelector,
+  propOr('', 'sortBy'),
+);
+export const getSortOrder = createSelector(
+  searchParamsSelector,
+  propOr('', 'sortOrder'),
+);

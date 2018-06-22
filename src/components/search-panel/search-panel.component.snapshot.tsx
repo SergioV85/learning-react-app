@@ -8,6 +8,7 @@ describe('Search Panel Component Snapshot', () => {
   it('should renders correctly', () => {
     const searchPanelSnapshot = shallow(
       <SearchPanel
+        movies={[]}
         searchBy='title'
         searchQuery=''
         search=''

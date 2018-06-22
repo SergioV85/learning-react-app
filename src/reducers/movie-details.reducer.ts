@@ -1,7 +1,9 @@
-import { merge } from 'ramda';
+import { merge, propOr } from 'ramda';
+import { createSelector } from 'reselect';
 import MovieDetailsActionTypes from './../action-types/movie-details.action-types';
 import MoviesListActionTypes from './../action-types/movies-list.action-types';
 import { IMovieObject } from './../components/movie-details/movie-details.component';
+import { IMoviesPageStore } from './root.reducer';
 
 export interface IMovieDetailsStore {
   isLoading: boolean;
@@ -32,3 +34,9 @@ export const movieDetailsReducer = (state: IMovieDetailsStore = defaultState, ac
       return state;
   }
 };
+
+const movieDetailsSelector = (state: IMoviesPageStore) => state.movieDetails;
+export const getSelectedMovie = createSelector(
+  movieDetailsSelector,
+  propOr(null, 'movieDetails'),
+);

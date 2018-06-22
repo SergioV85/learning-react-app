@@ -38,7 +38,9 @@ export class MovieDetailsHeader extends React.Component<ITopbarProps, {}> {
   }
 
   public componentDidMount() {
-    this.props.requestMovieOnInit(this.props.selectedMovieId);
+    if (this.props.selectedMovieId && !this.props.selectedMovie) {
+      this.props.requestMovieOnInit(this.props.selectedMovieId);
+    }
   }
   public componentDidUpdate(prevProps: ITopbarProps) {
     if (prevProps.selectedMovieId !== this.props.selectedMovieId) {

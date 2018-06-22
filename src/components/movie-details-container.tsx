@@ -1,17 +1,12 @@
-import { last, pathOr, pipe, split } from 'ramda';
 import { connect } from 'react-redux';
 import { MovieDetailsActions } from './../actions/movie-details.actions';
-import { IMoviesPageStore } from './../reducers/root.reducer';
+import { getSelectedMovie } from './../reducers/movie-details.reducer';
+import { getSelectedMovieId, IMoviesPageStore } from './../reducers/root.reducer';
 import { MovieDetailsHeader } from './movie-details-header/movie-details-header.component';
 
 const mapStateToProps = (state: IMoviesPageStore) => ({
-  selectedMovie: pathOr(null, ['movieDetails', 'movieDetails'], state),
-  selectedMovieId: pipe(
-    pathOr('', ['router', 'location', 'pathname']),
-    split('/'),
-    last,
-    parseInt,
-  )(state),
+  selectedMovie: getSelectedMovie(state),
+  selectedMovieId: getSelectedMovieId(state),
 });
 ​
 const mapDispatchToProps = (dispatch: any) => ({

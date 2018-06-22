@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { ErrorBoundary } from '../error-boundary/error-boundary.component';
+import { IMovieObject } from '../movie-details/movie-details.component';
 import { ToggleSwitcher } from './../../shared-components/toggle-switcher/toggle-switcher.component';
 import { Topbar } from './../top-bar/top-bar.component';
 
 interface ISearchPanelProps {
+  movies: IMovieObject[];
   searchBy: string;
   searchQuery: string;
   search: string;
@@ -32,7 +34,9 @@ export class SearchPanel extends React.Component<ISearchPanelProps, {}> {
   }
 
   public componentDidMount() {
-    this.props.doSearchOnInit(this.props.searchQuery);
+    if (!this.props.searchQuery || (this.props.searchQuery && !this.props.movies.length)) {
+      this.props.doSearchOnInit(this.props.searchQuery);
+    }
   }
 
   public render() {

@@ -9,7 +9,7 @@ describe('Error Boundary component', () => {
   const errorBoundaryInstance = errorBoundaryComponent.instance() as ErrorBoundary;
   describe('componentDidCatch', () => {
     beforeAll(() => {
-      errorBoundaryInstance.componentDidCatch();
+      errorBoundaryInstance.componentDidCatch({ err: 'Some error' });
     });
     it('should change the state', () => {
       expect(errorBoundaryComponent.state().hasError)
