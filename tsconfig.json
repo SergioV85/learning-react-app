@@ -8,6 +8,7 @@
     "removeComments": false,
     "preserveConstEnums": true,
     "baseUrl": "./src",
+    "rootDirs": ["src", "stories"],
 
     "noImplicitAny": true,
     "strict": true,
